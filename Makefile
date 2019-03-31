@@ -9,7 +9,7 @@ DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 list: ## Show dotfiles in this repository
 	@$(foreach val, $(DOTFILES), ls -dF $(val);)
 
-setup: ## Setup the environment
+init: ## Setup the environment
 	@$(foreach val, $(wildcard ./setup/*.sh), DOTPATH=${DOTPATH} bash $(val);)
 
 deploy: ## Create symlinks to your home directory

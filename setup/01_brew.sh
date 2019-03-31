@@ -1,4 +1,4 @@
-nstall_if_not_installed() {
+install_if_not_installed() {
   if ! brew ls --versions $1 > /dev/null; then brew install $1; fi
 }
 
