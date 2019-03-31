@@ -1,0 +1,40 @@
+" search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set wrapscan
+
+" keymap
+let mapleader = "\<Space>"
+
+" move window
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+
+nnoremap <Esc><Esc> :noh<CR>
+
+" split window
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+
+" tab page
+nnoremap sn gt
+nnoremap sp gT
+nnoremap st :<C-u>tabnew<CR>
+
+" write file
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :wq<CR>
+
+" surround
+set surround
+
+" 行をまたいで移動
+set whichwrap=b,s,h,l,<,>,[,],~
+
+" yank to clipboard
+set clipboard+=unnamedplus
+

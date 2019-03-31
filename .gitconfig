@@ -1,0 +1,11 @@
+[user]
+	name = choco14t
+	email = choco14t@users.noreply.github.com
+[core]
+	editor = nvim
+[fetch]
+    prune = true
+[pull]
+    ff = only
+[merge]
+    ff = false
