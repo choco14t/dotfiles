@@ -36,5 +36,5 @@ set surround
 set whichwrap=b,s,h,l,<,>,[,],~
 
 " yank to clipboard
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 
