@@ -1,0 +1,25 @@
+<mtTheme>
+  <id>Custom Nord</id>
+  <editorColorsScheme>Custom Nord</editorColorsScheme>
+  <dark>true</dark>
+  <name>Custom Nord</name>
+  <colors>
+    <color id="background" value="2e3440ff"/>
+    <color id="foreground" value="d8dee9ff"/>
+    <color id="text" value="d8dee9ff"/>
+    <color id="highlight" value="5e81acff"/>
+    <color id="selectionBackground" value="5e81acff"/>
+    <color id="selectionForeground" value="d8dee9ff"/>
+    <color id="button" value="434c5eff"/>
+    <color id="secondaryBackground" value="2e3440ff"/>
+    <color id="disabled" value="d8dee9ff"/>
+    <color id="contrast" value="2e3440ff"/>
+    <color id="tableSelected" value="8fbcbbff"/>
+    <color id="secondBorder" value="3b4252ff"/>
+    <color id="treeSelection" value="5e81acff"/>
+    <color id="notifications" value="3b4252ff"/>
+    <color id="accent" value="5e81acff"/>
+    <color id="excluded" value="d8dee966"/>
+  </colors>
+  <themeId>Custom Nord</themeId>
+</mtTheme>
