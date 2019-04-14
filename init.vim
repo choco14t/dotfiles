@@ -16,7 +16,6 @@ set clipboard=unnamed,unnamedplus
 set encoding=utf8
 set number
 set mouse=a
-" set list
 set cursorline
 set nowrap
 
@@ -74,4 +73,3 @@ nmap f <plug>(easymotion-overwin-f2)
 
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
-
