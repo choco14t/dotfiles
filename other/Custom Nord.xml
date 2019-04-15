@@ -18,7 +18,7 @@
     <color id="secondBorder" value="3b4252ff"/>
     <color id="treeSelection" value="5e81acff"/>
     <color id="notifications" value="3b4252ff"/>
-    <color id="accent" value="5e81acff"/>
+    <color id="accent" value="81a1c1ff"/>
     <color id="excluded" value="d8dee966"/>
   </colors>
   <themeId>Custom Nord</themeId>
