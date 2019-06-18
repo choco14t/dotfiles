@@ -1,5 +1,6 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+eval "$(anyenv init -)"
 source ~/.zplug/init.zsh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
