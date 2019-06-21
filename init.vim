@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-  Plug 'hzchirs/vim-material'
+  Plug 'arcticicestudio/nord-vim'
   Plug 'Lokaltog/vim-easymotion'
   Plug 'tpope/vim-surround'
 call plug#end()
@@ -9,7 +9,7 @@ syntax enable
 
 set background=dark
 set termguicolors
-colorscheme vim-material
+colorscheme nord
 
 " options
 set clipboard=unnamed,unnamedplus
