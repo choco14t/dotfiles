@@ -20,8 +20,11 @@ autoload -U compinit; compinit -C
 
 alias l="ls -lhAGF"
 alias rm="rm -ri"
+
 alias nv="nvim"
+
 alias brname="git symbolic-ref --short HEAD"
+alias chbrname="git branch -m"
 alias sts="git status -s"
 alias cho="git checkout"
 alias chkob="git checkout -b"
