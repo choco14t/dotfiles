@@ -7,8 +7,6 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
 zplug "zsh-users/zsh-autosuggestions"
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux, if:'[ -x $(which tmux) ]'
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "kyoshidajp/ghkw", as:command, from:gh-r, lazy:true
@@ -41,6 +39,8 @@ alias cmt="git commit"
 alias cln="git clone"
 alias brvv="git branch -vv"
 alias psuoh="git push -u origin HEAD"
+
+eval "$(starship init zsh)"
 
 fbr() {
     local branches branch

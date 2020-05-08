@@ -8,3 +8,4 @@ if [ ! -x "$(which brew)" ]; then /usr/bin/ruby -e "$(curl -fsSL https://raw.git
 install_if_not_installed zsh
 install_if_not_installed tmux
 install_if_not_installed neovim
+install_if_not_installed starship
