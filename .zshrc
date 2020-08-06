@@ -44,7 +44,7 @@ eval "$(starship init zsh)"
 
 fbr() {
     local branches branch
-    branches=$(git branch) &&
+    branches=$(git branch | grep -v \*) &&
     branch=$(echo "$branches" | fzf +m) &&
     git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
