@@ -46,7 +46,7 @@ fbr() {
     local branches branch
     branches=$(git branch | grep -v \*) &&
     branch=$(echo "$branches" | fzf +m) &&
-    git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+    git checkout $(echo "$branch" | awk '{print $1}')
 }
 
 fbrt() {
@@ -112,7 +112,7 @@ f7() {
 
 fdel() {
   local branches branch
-  branches=$(git branch | awk '{if (substr($0,1,1) !~ /\*/) print $1}') &&
+  branches=$(git branch | grep -v \*) &&
   branch=$(echo "$branches" | fzf --multi --exit-0) &&
   git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
