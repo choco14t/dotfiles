@@ -3,12 +3,12 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 
-export PATH="$PATH:$HOME/flutter/bin"
-
 declare -A ZPLGM
 ZPLGM[BIN_DIR]="$HOME/zplugin/bin"
 ZPLGM[HOME_DIR]="$HOME/zplugin"
 ZPLGM[ZCOMPDUMP_PATH]="$HOME/.zcompdump"
+
+ZSH_DIR="$HOME/.zsh"
 
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=10000

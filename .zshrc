@@ -18,6 +18,12 @@ then
   eval "$(anyenv init - zsh)"
 fi
 
+if [ -d $ZSH_DIR -a -r $ZSH_DIR -a -x $ZSH_DIR ]; then
+  for i in $ZSH_DIR/*; do
+    [[ ${i##*/} = *.zsh ]] && [ \( -f $i -o -h $i \) -a -r $i ] && . $i
+  done
+fi
+
 alias l="ls -lhAGF"
 alias rm="rm -ri"
 
