@@ -9,3 +9,4 @@ install_if_not_installed zsh
 install_if_not_installed tmux
 install_if_not_installed neovim
 install_if_not_installed starship
+install_if_not_installed fzf

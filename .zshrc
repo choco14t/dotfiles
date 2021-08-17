@@ -1,20 +1,22 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(anyenv init -)"
-source ~/.zplug/init.zsh
+if [[ ! -d "$ZPLGM[BIN_DIR]" ]]; then
+  git clone https://github.com/zdharma/zplugin "$ZPLGM[BIN_DIR]"
+fi
+source "$ZPLGM[BIN_DIR]/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions", lazy:true
-zplug "zsh-users/zsh-autosuggestions"
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux, if:'[ -x $(which tmux) ]'
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-zplug "kyoshidajp/ghkw", as:command, from:gh-r, lazy:true
+zplugin light "zsh-users/zsh-autosuggestions"
+zplugin light "zsh-users/zsh-completions"
+zplugin light "zsh-users/zsh-syntax-highlighting"
 
-if ! zplug check; then zplug install; fi
-zplug load
+zinit ice from"gh-r" as"program"; zinit light junegunn/fzf
 
-autoload -U compinit; compinit -C
+if [[ "${+commands[anyenv]}" == 1 ]]
+then
+  eval "$(anyenv init - zsh)"
+fi
 
 alias l="ls -lhAGF"
 alias rm="rm -ri"
@@ -116,4 +118,3 @@ fdel() {
   branch=$(echo "$branches" | fzf --multi --exit-0) &&
   git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
-

@@ -15,11 +15,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'majutsushi/tagbar'
   Plug 'ervandew/supertab'
   Plug 'godlygeek/tabular'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-  " PHP Support
-  Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-  Plug 'tobyS/pdv'
 call plug#end()
 
 filetype plugin indent on
@@ -86,18 +81,16 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :wq<CR>
 
 " vim-easymotion
-let g:EasyMotion_do_mapping=0
 let g:EasyMotion_smartcase=1
-nmap f <plug>(easymotion-overwin-f2)
 
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
 
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1 
+let g:airline_powerline_fonts = 1
 let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 
+let g:hybrid_reduced_contrast = 1
 
 " NERDTree Configuration
 let NERDTreeShowHidden=1
@@ -105,7 +98,3 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Tagbar Configuration
 map <C-m> :TagbarToggle<CR>
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('ignore_sources', {'.php': ['omni']})
