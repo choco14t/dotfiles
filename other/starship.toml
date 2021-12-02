@@ -1,5 +1,8 @@
 add_newline = false
-format = '$jobs$directory$git_branch$git_status$aws$character'
+format = """
+$directory$git_branch$git_status$aws$terraform
+$jobs$character
+"""
 
 [aws]
 format = '[$symbol($profile)(\($region\))(\[$duration\])]($style) '
@@ -8,8 +11,8 @@ symbol = ''
 ap-northeast-1 = 'tokyo'
 
 [character]
-success_symbol = '[➜](bold green)'
-error_symbol = '[✗](bold red)'
+success_symbol = '[❯❯❯](bold green)'
+error_symbol = '[❯❯❯](bold red)'
 
 [git_branch]
 format = "[\\($branch\\)]($style) "
