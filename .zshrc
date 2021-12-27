@@ -13,9 +13,8 @@ zplugin light "zsh-users/zsh-syntax-highlighting"
 
 zinit ice from"gh-r" as"program"; zinit light junegunn/fzf
 
-if [[ "${+commands[anyenv]}" == 1 ]]
-then
-  eval "$(anyenv init - zsh)"
+if [ -e $(brew --prefix asdf)/libexec/asdf.sh ]; then
+  . $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
 if [ -d $ZSH_DIR -a -r $ZSH_DIR -a -x $ZSH_DIR ]; then
@@ -46,7 +45,7 @@ alias sthl="git stash list"
 alias cmt="git commit"
 alias cln="git clone"
 alias brvv="git branch -vv"
-alias psuoh="git push -u origin HEAD"
+alias psu="git push -u origin HEAD"
 
 eval "$(starship init zsh)"
 
