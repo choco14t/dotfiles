@@ -11,8 +11,8 @@ symbol = ''
 ap-northeast-1 = 'tokyo'
 
 [character]
-success_symbol = '[❯❯❯](bold green)'
-error_symbol = '[❯❯❯](bold red)'
+success_symbol = '[λ](bold green)'
+error_symbol = '[λ](bold red)'
 
 [git_branch]
 format = "[\\($branch\\)]($style) "

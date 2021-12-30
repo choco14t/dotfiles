@@ -1,23 +1,28 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [[ ! -d "$ZPLGM[BIN_DIR]" ]]; then
-  git clone https://github.com/zdharma/zplugin "$ZPLGM[BIN_DIR]"
+if [[ ! -d "$ZINIT[BIN_DIR]" ]]; then
+  git clone https://github.com/zdharma-continuum/zinit "$ZINIT[BIN_DIR]"
 fi
-source "$ZPLGM[BIN_DIR]/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source "$ZINIT[BIN_DIR]/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-zplugin light "zsh-users/zsh-autosuggestions"
-zplugin light "zsh-users/zsh-completions"
-zplugin light "zsh-users/zsh-syntax-highlighting"
+zinit light "zsh-users/zsh-autosuggestions"
+zinit light "zsh-users/zsh-completions"
+zinit light "zsh-users/zsh-syntax-highlighting"
 
-zinit ice from"gh-r" as"program"; zinit light junegunn/fzf
+zinit ice lucid wait \
+  multisrc"shell/{completion,key-bindings}.zsh" \
+  pick"/dev/null"
+zinit light junegunn/fzf
 
-if [ -e $(brew --prefix asdf)/libexec/asdf.sh ]; then
+autoload -U compinit; compinit -d "$ZINIT[ZCOMPDUMP_PATH]"
+
+if [ "$(uname)" = 'Darwin' ] && [ -e $(brew --prefix asdf)/libexec/asdf.sh ]; then
   . $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
-if [ -d $ZSH_DIR -a -r $ZSH_DIR -a -x $ZSH_DIR ]; then
+if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   for i in $ZSH_DIR/*; do
     [[ ${i##*/} = *.zsh ]] && [ \( -f $i -o -h $i \) -a -r $i ] && . $i
   done
@@ -28,15 +33,13 @@ alias rm="rm -ri"
 
 alias nv="nvim"
 
-alias brname="git symbolic-ref --short HEAD"
-alias chbrname="git branch -m"
 alias sts="git status -s"
 alias cho="git checkout"
-alias chkob="git checkout -b"
+alias crb="git checkout -b"
 alias pso="git push origin HEAD"
+alias psu="git push -u origin HEAD"
 alias po="git pull origin"
 alias fe="git fetch"
-alias fep="git fetch --prune"
 alias fea="git fetch --all"
 alias lg="git log --graph"
 alias sths="git stash save"
@@ -44,8 +47,8 @@ alias sthp="git stash pop"
 alias sthl="git stash list"
 alias cmt="git commit"
 alias cln="git clone"
-alias brvv="git branch -vv"
-alias psu="git push -u origin HEAD"
+
+alias dc="docker compose"
 
 eval "$(starship init zsh)"
 

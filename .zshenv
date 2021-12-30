@@ -1,12 +1,12 @@
 export LANG=en_US.UTF-8
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-export PATH="$HOME/.anyenv/bin:$PATH"
+export FZF_DEFAULT_OPTS='--no-height --reverse --border'
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
-declare -A ZPLGM
-ZPLGM[BIN_DIR]="$HOME/zplugin/bin"
-ZPLGM[HOME_DIR]="$HOME/zplugin"
-ZPLGM[ZCOMPDUMP_PATH]="$HOME/.zcompdump"
+declare -A ZINIT
+ZINIT[BIN_DIR]="$HOME/zinit/bin"
+ZINIT[HOME_DIR]="$HOME/zinit"
+ZINIT[ZCOMPDUMP_PATH]="$HOME/.zcompdump"
 
 ZSH_DIR="$HOME/.zsh"
 
