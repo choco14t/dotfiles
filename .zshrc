@@ -22,6 +22,10 @@ if [ "$(uname)" = 'Darwin' ] && [ -e $(brew --prefix asdf)/libexec/asdf.sh ]; th
   . $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
+if [ "$(uname)" = 'Linux' ] && [ -e $HOME/.asdf/asdf.sh ]; then
+  . $HOME/.asdf/asdf.sh
+fi
+
 if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   for i in $ZSH_DIR/*; do
     [[ ${i##*/} = *.zsh ]] && [ \( -f $i -o -h $i \) -a -r $i ] && . $i

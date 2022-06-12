@@ -4,7 +4,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 5
+    x: 0
     y: 0
 
   # Startup Mode (changes require restart)
@@ -18,8 +18,8 @@ window:
   #   - SimpleFullscreen
   startup_mode: Maximized
 
-  # Window title
-  title: choco
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
 
 font:
   # Normal (roman) font face

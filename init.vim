@@ -2,19 +2,10 @@ call plug#begin('~/.vim/plugged')
   " Color Scheme / Interface
   Plug 'arcticicestudio/nord-vim'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
 
   " Utilities
   Plug 'Lokaltog/vim-easymotion'
   Plug 'tpope/vim-surround'
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/fzf'
-  Plug 'preservim/nerdtree'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'majutsushi/tagbar'
-  Plug 'ervandew/supertab'
-  Plug 'godlygeek/tabular'
 call plug#end()
 
 filetype plugin indent on
@@ -95,6 +86,3 @@ let g:hybrid_reduced_contrast = 1
 " NERDTree Configuration
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
-
-" Tagbar Configuration
-map <C-m> :TagbarToggle<CR>

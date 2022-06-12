@@ -1,6 +1,6 @@
 [user]
 	name = choco
-	email = chocoh14t@gmail.com
+	email = 8362391+choco14t@users.noreply.github.com
 [core]
 	editor = nvim
 [fetch]
@@ -11,3 +11,9 @@
     ff = false
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
