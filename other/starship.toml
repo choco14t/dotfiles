@@ -1,7 +1,7 @@
 add_newline = false
 format = """
 [┌── ](bold white)$directory$git_branch$git_status$aws$terraform
-[└─](bold white)$character"""
+[└── ](bold white) """
 
 [aws]
 format = '[$symbol($profile)(\($region\))(\[$duration\])]($style) '
@@ -24,6 +24,6 @@ format = "on [$symbol$branch ]($style) "
 style = "bold blue"
 truncation_length = 3
 truncation_symbol = ""
-read_only = ""
+read_only = " "
 format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
 
