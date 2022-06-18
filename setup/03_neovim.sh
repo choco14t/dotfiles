@@ -16,4 +16,4 @@ else
     echo "nvim directory already exist."
 fi
 
-ln -fnsv $HOME/.dotfiles/init.vim $NVIM_PATH/init.vim
+ln -fnsv $HOME/.dotfiles/.config/init.vim $NVIM_PATH/init.vim

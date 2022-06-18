@@ -16,7 +16,7 @@ success_symbol = "[](bold white)"
 error_symbol = "[](bold red)"
 
 [git_branch]
-symbol = "  "
+symbol = "  "
 style = "bold #81a1c1 inverted"
 format = "on [$symbol$branch ]($style) "
 
