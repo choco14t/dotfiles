@@ -1,29 +1,25 @@
 add_newline = false
+
 format = """
-[┌── ](bold white)$directory$git_branch$git_status$aws$terraform
-[└── ](bold white) """
+$directory$git_branch$git_status$aws$terraform
+> 
+"""
 
 [aws]
 format = '[$symbol($profile)(\($region\))(\[$duration\])]($style) '
 symbol = ''
+
 [aws.region_aliases]
 ap-northeast-1 = 'tokyo'
 
-[character]
-#success_symbol = "[▶](bold white)"
-success_symbol = "[](bold white)"
-#error_symbol = "[▶](bold red)"
-error_symbol = "[](bold red)"
-
 [git_branch]
-symbol = "  "
-style = "bold #81a1c1 inverted"
-format = "on [$symbol$branch ]($style) "
+symbol = "- "
+style = "#81a1c1"
+format = "[$symbol$branch]($style) "
 
 [directory]
-style = "bold blue"
+style = "#8fbcbb"
 truncation_length = 3
 truncation_symbol = ""
-read_only = " "
-format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
+format = "[$path]($style) "
 
