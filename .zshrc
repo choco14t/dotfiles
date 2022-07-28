@@ -32,7 +32,8 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
   done
 fi
 
-alias l="ls -lhAGF"
+alias ls="exa"
+alias ll="ls -lhF"
 alias rm="rm -ri"
 
 alias nv="nvim"
