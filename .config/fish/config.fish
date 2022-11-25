@@ -6,4 +6,6 @@ if type -q starship
     starship init fish | source
 end
 
+set fish_greeting
+
 source (dirname (status --current-filename))/alias.fish
