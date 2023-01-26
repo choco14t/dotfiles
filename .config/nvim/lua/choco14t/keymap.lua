@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 
-vim.api.nvim_set_keymap('', ',', ':', { noremap = true })
+local keymap = vim.keymap
+
+keymap.set("n", ",", ":")
+keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- quit insert mode
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
@@ -21,3 +24,4 @@ vim.api.nvim_set_keymap('n', 'sv', ':<C-u>vs<CR>', { noremap = true, silent = tr
 -- write file
 vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>q', ':wq<CR>', { noremap = true, silent = true })
+
