@@ -1,27 +1,27 @@
-vim.g.mapleader = " "
-
 local keymap = vim.keymap
+
+vim.g.mapleader = " "
 
 keymap.set("n", ",", ":")
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- quit insert mode
-vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
+keymap.set("i", "jj", "<Esc>")
 
 -- move window
-vim.api.nvim_set_keymap('n', 'sj', '<C-w>j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'sk', '<C-w>k', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'sl', '<C-w>l', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'sh', '<C-w>h', { noremap = true, silent = true })
+keymap.set("n", "sj", "<C-w>j")
+keymap.set("n", "sk", "<C-w>k")
+keymap.set("n", "sl", "<C-w>l")
+keymap.set("n", "sh", "<C-w>h")
 
 -- turn off highlight
-vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':noh<CR>', { noremap = true, silent = true })
+keymap.set("n", "<Esc><Esc>", ":noh<CR>")
 
 -- split window
-vim.api.nvim_set_keymap('n', 'ss', ':<C-u>sp<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'sv', ':<C-u>vs<CR>', { noremap = true, silent = true })
+keymap.set("n", "ss", ":<C-u>sp<CR>")
+keymap.set("n", "sv", ":<C-u>vs<CR>")
 
 -- write file
-vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>q', ':wq<CR>', { noremap = true, silent = true })
+keymap.set("n", "<Leader>w", ":w<CR>")
+keymap.set("n", "<Leader>q", ":wq<CR>")
 
