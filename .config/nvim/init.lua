@@ -1,5 +1,2 @@
-require('rc/base')
+require('choco14t')
 
-require('rc/option')
-require('rc/keymap')
-require('rc/plugins')

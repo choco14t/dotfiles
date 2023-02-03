@@ -2,24 +2,24 @@
 vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 -- color scheme
-vim.cmd([[ syntax enable ]])
+vim.cmd.syntax("enable")
 vim.o.t_Co = 256
-vim.o.background = 'dark'
+vim.o.background = "dark"
 
 -- true color support
-vim.g.colorterm = os.getenv('COLORTERM')
-if vim.fn.exists('+termguicolors') == 1 then
+vim.g.colorterm = os.getenv("COLORTERM")
+if vim.fn.exists("+termguicolors") == 1 then
   vim.o.termguicolors = true
 end
 
 vim.o.number = true -- display line number
-vim.o.mousescroll = 'ver:0,hor:0'
+vim.o.mousescroll = "ver:0,hor:0"
 
 -- clipboard
 -- + reg: Ctrl-v nnamedplus
 -- * reg: middle click unnamed
-if vim.fn.has('clipboard') == 1 then
-  vim.o.clipboard = 'unnamedplus,unnamed'
+if vim.fn.has("clipboard") == 1 then
+  vim.o.clipboard = "unnamedplus,unnamed"
 end
 
 -- indent
@@ -38,9 +38,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.wrapscan = true
 
--- shell
-vim.o.shell = 'zsh'
-
 -- swap file
 vim.o.swapfile = false
-vim.o.directory = '~/.vim/tmp'
+vim.o.directory = "~/.vim/tmp"
+
