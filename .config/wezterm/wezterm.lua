@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 local default_prog = nil
-local font_size = 13
+local font_size = 16
 local launch_menu = {}
 
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
@@ -19,17 +19,17 @@ end
 local keys = require("keybindings")
 local colors = is_windows and
   wezterm.color.load_scheme("colors/nightfox.toml") or
-  wezterm.color.load_scheme(os.getenv("") .. "/.config/wezterm/colors/nightfox.toml")
+  wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/nightfox.toml")
 
 return {
   adjust_window_size_when_changing_font_size = false,
 
-  color_scheme = 'nightfox',
+  color_scheme = "nightfox",
   colors = colors,
 
   default_prog = default_prog,
 
-  font = wezterm.font("FiraCode Nerd Font"),
+  font = wezterm.font("Cica"),
   font_size = font_size,
 
   hide_tab_bar_if_only_one_tab = true,
@@ -40,7 +40,7 @@ return {
 
   tab_bar_at_bottom = false,
 
-  use_fancy_tab_bar = false,
+  use_fancy_tab_bar = true,
   use_ime = true,
 
   window_background_opacity = 0.9,
@@ -49,6 +49,6 @@ return {
     active_titlebar_bg = "#212e3f",
   },
   window_decorations = "RESIZE",
-  window_padding = { left = 5, right = 5, top = 3, bottom = 3 },
+  window_padding = { left = 5, right = 5, top = 5, bottom = 5 },
 }
 
