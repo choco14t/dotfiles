@@ -1,6 +1,6 @@
 require("choco14t.keymap")
 require("choco14t.option")
-require("choco14t.packer")
+require("choco14t.lazy")
 
 local augroup = vim.api.nvim_create_augroup
 local Choco14tGroup = augroup("Choco14t", {})
