@@ -8,7 +8,7 @@ local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 
 if is_windows then
   default_prog = { "wsl.exe", "~", "-d", "Ubuntu-22.04" }
-  font_size = 11
+  font_size = 13
 
   table.insert(launch_menu, {
     label = "New Tab PowerShell",
