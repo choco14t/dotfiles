@@ -5,6 +5,9 @@ treesitter.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
   ensure_installed = "all",
 
+  -- List of parsers to ignore installing (for "all")
+  ignore_install = { "scala" },
+
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 

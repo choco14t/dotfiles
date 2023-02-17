@@ -2,8 +2,7 @@ add_newline = false
 
 format = """
 $directory$git_branch$git_status$aws$terraform
-> 
-"""
+[❯](bold #63cdcf) """
 
 [aws]
 format = '[$symbol($profile)(\($region\))(\[$duration\])]($style) '
