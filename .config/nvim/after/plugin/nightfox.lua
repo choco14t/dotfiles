@@ -6,7 +6,7 @@ end
 
 nightfox.setup({
 	options = {
-		transparent = true,
+		transparent = false,
 		dim_inactive = true,
 	},
 })
@@ -16,13 +16,5 @@ if vim.fn.isdirectory(compile_path) == 0 then
 	nightfox.compile()
 end
 
-function ApplyColor(color)
-	color = color or "nightfox"
-	vim.cmd.colorscheme(color)
-
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
-ApplyColor()
+vim.cmd.colorscheme("nightfox")
 

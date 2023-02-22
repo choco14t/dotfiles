@@ -14,12 +14,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {
-    "EdenEast/nightfox.nvim",
-    config = function()
-      vim.cmd.colorscheme("nightfox")
-    end,
-  },
+  { "EdenEast/nightfox.nvim" },
+  { "folke/zen-mode.nvim" },
+  { "mbbill/undotree" },
+  { "tpope/vim-surround" },
+  { "nvim-tree/nvim-web-devicons" },
+  { "lukas-reineke/indent-blankline.nvim" },
+
   {
 	  "nvim-telescope/telescope.nvim", tag = "0.1.1",
 	  dependencies = {
@@ -67,9 +68,27 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
   },
-  "folke/zen-mode.nvim",
-  "mbbill/undotree",
-  "tpope/vim-surround",
-  "nvim-tree/nvim-web-devicons",
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = true,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    version = "v3.*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup {}
+    end
+  },
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
+  }
 })
 
