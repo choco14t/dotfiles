@@ -13,11 +13,11 @@ ap-northeast-1 = 'tokyo'
 
 [git_branch]
 symbol = ""
-style = "#81a1c1"
+style = "bold #81a1c1"
 format = "[$symbol$branch]($style) "
 
 [directory]
-style = "#8fbcbb"
+style = "bold #8fbcbb"
 truncation_length = 3
 truncation_symbol = ""
 format = "[$path]($style) "
