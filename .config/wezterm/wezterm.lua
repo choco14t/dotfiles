@@ -44,11 +44,6 @@ return {
   use_ime = true,
 
   window_background_opacity = 0.9,
-  window_frame = {
-    inactive_titlebar_bg = "#71839b",
-    active_titlebar_bg = "#212e3f",
-  },
-  window_decorations = "RESIZE",
   window_padding = { left = 5, right = 5, top = 5, bottom = 5 },
 }
 
