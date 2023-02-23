@@ -1,5 +1,5 @@
 local Terminal = require("toggleterm.terminal").Terminal
-local gitui = Terminal:new({ cmd = "gitui", hidden = true, direction = "float" })
+local gitui = Terminal:new({ cmd = "gitui", hidden = true, direction = "float", count = 9 })
 
 function Gitui_toggle()
   gitui:toggle()
