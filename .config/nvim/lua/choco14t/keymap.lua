@@ -8,6 +8,9 @@ keymap.set("n", "<leader>pv", vim.cmd.Ex, { noremap = true })
 -- quit insert mode
 keymap.set("i", "jj", "<Esc>", { noremap = true })
 
+-- delete buffer
+keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
+
 -- move window
 keymap.set("n", "sj", "<C-w>j", { noremap = true })
 keymap.set("n", "sk", "<C-w>k", { noremap = true })
@@ -25,7 +28,8 @@ keymap.set("n", "sv", ":<C-u>vs<CR>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>w", ":w<CR>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>q", ":wq<CR>", { noremap = true, silent = true })
 
--- quit insert mode in term
+-- terminal settings
 keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+keymap.set("t", "<C-\\>", "<Esc>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>t", ":Terminals<CR>", { noremap = true, silent = true })
 
