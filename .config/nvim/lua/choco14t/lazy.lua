@@ -20,6 +20,7 @@ require("lazy").setup({
   { "tpope/vim-surround" },
   { "nvim-tree/nvim-web-devicons" },
   { "lukas-reineke/indent-blankline.nvim" },
+  { "lewis6991/gitsigns.nvim" },
 
   {
 	  "nvim-telescope/telescope.nvim", tag = "0.1.1",
