@@ -1,5 +1,12 @@
-if test -e ~/.asdf/asdf.fish
-    source ~/.asdf/asdf.fish
+switch (uname)
+case Linux
+    if test -e ~/.asdf/asdf.fish
+      source ~/.asdf/asdf.fish
+    end
+case Darwin
+    if test -e $(brew --prefix asdf)/libexec/asdf.fish
+      source $(brew --prefix asdf)/libexec/asdf.fish
+    end
 end
 
 if type -q starship
@@ -11,3 +18,4 @@ if [ -d $FISH_DIR ] && [ -r $FISH_DIR ] && [ -x $FISH_DIR ]
         source $file
     end
 end
+
