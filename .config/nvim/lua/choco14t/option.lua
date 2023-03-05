@@ -12,8 +12,11 @@ if vim.fn.exists("+termguicolors") == 1 then
   vim.o.termguicolors = true
 end
 
-vim.o.number = true -- display line number
-vim.o.mousescroll = "ver:0,hor:0"
+vim.o.number = true
+vim.o.relativenumber = true
+
+vim.o.mouse = "a"
+vim.o.mousescroll = "ver:3,hor:6"
 
 -- clipboard
 -- + reg: Ctrl-v nnamedplus
