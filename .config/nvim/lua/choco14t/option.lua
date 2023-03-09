@@ -18,6 +18,8 @@ vim.o.relativenumber = true
 vim.o.mouse = "a"
 vim.o.mousescroll = "ver:3,hor:6"
 
+vim.o.wrap = true
+
 -- clipboard
 -- + reg: Ctrl-v nnamedplus
 -- * reg: middle click unnamed
