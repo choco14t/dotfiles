@@ -90,6 +90,10 @@ require("lazy").setup({
     config = function()
       require("nvim-autopairs").setup {}
     end
-  }
+  },
+  {
+    "renerocksai/telekasten.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
 })
 
