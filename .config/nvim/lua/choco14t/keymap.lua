@@ -31,5 +31,13 @@ keymap.set("n", "<Leader>q", ":wq<CR>", { noremap = true, silent = true })
 -- terminal settings
 keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 keymap.set("t", "<C-\\>", "<Esc>", { noremap = true, silent = true })
-keymap.set("n", "<Leader>t", ":Terminals<CR>", { noremap = true, silent = true })
+
+-- new tab
+keymap.set("n", "te", ":tabedit<CR>")
+
+-- resize window
+keymap.set("n", "<C-w><left>", "<C-w><")
+keymap.set("n", "<C-w><right>", "<C-w>>")
+keymap.set("n", "<C-w><up>", "<C-w>+")
+keymap.set("n", "<C-w><down>", "<C-w>-")
 
