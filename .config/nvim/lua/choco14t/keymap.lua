@@ -3,7 +3,6 @@ local keymap = vim.keymap
 vim.g.mapleader = " "
 
 keymap.set("n", ",", ":", { noremap = true })
-keymap.set("n", "<leader>pv", vim.cmd.Ex, { noremap = true })
 
 -- quit insert mode
 keymap.set("i", "jj", "<Esc>", { noremap = true })

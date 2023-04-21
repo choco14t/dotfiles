@@ -9,7 +9,10 @@ bufferline.setup({
     show_close_icon = false,
     modified_icon = "●",
     color_icons = true,
-    diagnostics = "nvim_lsp"
+    diagnostics = "nvim_lsp",
+    offsets = {
+      { filetype = "NvimTree" }
+    },
   },
 })
 

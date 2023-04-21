@@ -96,5 +96,9 @@ require("lazy").setup({
     "renerocksai/telekasten.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 })
 
