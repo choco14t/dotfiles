@@ -3,7 +3,8 @@ local ok, telekasten = pcall(require, "telekasten")
 if not ok then return end
 
 telekasten.setup({
-  home = vim.fn.expand(os.getenv("ZETTELKASTEN_DIR"))
+  home = vim.fn.expand(os.getenv("ZETTELKASTEN_DIR")),
+  auto_set_filetype = false,
 })
 
 -- Launch panel if nothing is typed after <leader>z
