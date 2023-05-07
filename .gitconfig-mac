@@ -1,0 +1,19 @@
+[user]
+	name = choco
+	email = 8362391+choco14t@users.noreply.github.com
+[core]
+	editor = nvim
+[fetch]
+    prune = true
+[pull]
+    ff = only
+[merge]
+    ff = false
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
