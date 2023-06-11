@@ -1,5 +1,10 @@
 require("choco14t.keymap")
 require("choco14t.option")
+
+if vim.g.vscode then
+  return
+end
+
 require("choco14t.command")
 require("choco14t.lazy")
 

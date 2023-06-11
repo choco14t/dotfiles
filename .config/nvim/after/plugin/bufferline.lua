@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local ok, bufferline = pcall(require, "bufferline")
 
 if not ok then return end
@@ -18,6 +22,7 @@ bufferline.setup({
 
 vim.keymap.set("n", "H", "<Cmd>BufferLineCyclePrev<CR>", {})
 vim.keymap.set("n", "L", "<Cmd>BufferLineCycleNext<CR>", {})
+vim.keymap.set("n", "<Leader>p", "<Cmd>BufferLineTogglePin<CR>", {})
 
 vim.keymap.set("n", "<Leader>1", function()
   bufferline.go_to_buffer(1, true)

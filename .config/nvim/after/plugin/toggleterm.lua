@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local Terminal = require("toggleterm.terminal").Terminal
 local gitui = Terminal:new({ cmd = "gitui", hidden = true, direction = "float", count = 9 })
 

@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local ok, builtin = pcall(require, "telescope.builtin")
 if not ok then return end
 

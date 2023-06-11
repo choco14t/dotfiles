@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 vim.keymap.set("n", ";t", "<cmd>TroubleToggle<cr>",
   {silent = true, noremap = true}
 )

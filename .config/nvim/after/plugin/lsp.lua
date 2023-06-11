@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local ok, lsp = pcall(require, "lsp-zero")
 
 if not ok then return end
@@ -9,18 +13,23 @@ lsp.ensure_installed({
   "graphql",
   "rust_analyzer",
   "lua_ls",
+  "terraformls",
   "tsserver",
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
+lsp.configure("lua_ls", {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { 'vim' }
+        globals = { "vim" }
       }
     }
   }
+})
+
+lsp.configure("terraformls", {
+  filetypes = { "tf", "tfvars", "terraform", "terraform-vars" }
 })
 
 local cmp = require("cmp")

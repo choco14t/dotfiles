@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local ok, nvim_tree = pcall(require, "nvim-tree")
 
 if not ok then return end

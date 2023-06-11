@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 local ok, nightfox = pcall(require, "nightfox")
 if not ok then
 	print("nightfox not loaded")
@@ -16,5 +20,5 @@ if vim.fn.isdirectory(compile_path) == 0 then
 	nightfox.compile()
 end
 
-vim.cmd.colorscheme("nightfox")
+vim.cmd.colorscheme("nordfox")
 
