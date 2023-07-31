@@ -20,5 +20,5 @@ if vim.fn.isdirectory(compile_path) == 0 then
 	nightfox.compile()
 end
 
-vim.cmd.colorscheme("nordfox")
+vim.cmd.colorscheme("nightfox")
 

@@ -13,7 +13,7 @@ if vim.fn.exists("+termguicolors") == 1 then
 end
 
 vim.o.number = true
-vim.o.relativenumber = false
+vim.o.relativenumber = true
 
 vim.o.mouse = "a"
 vim.o.mousescroll = "ver:3,hor:6"

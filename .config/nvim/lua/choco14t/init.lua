@@ -2,7 +2,7 @@ require("choco14t.keymap")
 require("choco14t.option")
 
 if vim.g.vscode then
-  return
+  require("choco14t.vscode")
 end
 
 require("choco14t.command")
