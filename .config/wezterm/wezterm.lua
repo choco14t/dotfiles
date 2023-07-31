@@ -18,13 +18,12 @@ end
 
 local keys = require("keybindings")
 local colors = is_windows and
-  wezterm.color.load_scheme("colors/nordfox.toml") or
-  wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/nordfox.toml")
+  wezterm.color.load_scheme("colors/nightfox.toml") or
+  wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/nightfox.toml")
 
 return {
   adjust_window_size_when_changing_font_size = false,
 
-  color_scheme = "nordfox",
   colors = colors,
 
   default_prog = default_prog,
