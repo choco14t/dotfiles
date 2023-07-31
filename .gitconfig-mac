@@ -4,11 +4,11 @@
 [core]
 	editor = nvim
 [fetch]
-    prune = true
+  prune = true
 [pull]
-    ff = only
+  ff = only
 [merge]
-    ff = false
+  ff = false
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
