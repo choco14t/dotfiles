@@ -4,6 +4,8 @@ set incsearch
 set smartcase
 set wrapscan
 
+set relativenumber
+
 " keymap
 let mapleader = "\<Space>"
 
