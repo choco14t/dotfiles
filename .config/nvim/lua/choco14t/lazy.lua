@@ -21,6 +21,8 @@ require("lazy").setup({
   { "nvim-tree/nvim-web-devicons" },
   { "lukas-reineke/indent-blankline.nvim" },
   { "lewis6991/gitsigns.nvim" },
+  { "github/copilot.vim" },
+  { "wakatime/vim-wakatime" },
 
   {
 	  "nvim-telescope/telescope.nvim", tag = "0.1.1",

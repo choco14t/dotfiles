@@ -1,5 +1,6 @@
-alias ls="exa"
+alias ls="eza"
 alias ll="ls -lhF --icons"
+alias la="ls -lAhF --icons"
 
 alias nv="nvim"
 alias gu="gitui"

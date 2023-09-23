@@ -50,7 +50,7 @@ lsp.setup_nvim_cmp({
 
 lsp.set_preferences({
   suggest_lsp_servers = false,
-  sign_icons = { error = " ", warn = " ", hint = " ", info = " " }
+  sign_icons = { error = " ", warn = " ", hint = " ", info = " " }
 })
 
 lsp.on_attach(function(_, bufnr)

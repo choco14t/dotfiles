@@ -1,0 +1,8 @@
+[settings]
+debug = false
+hide_project_names = true
+hide_branch_names = true
+hide_file_names = true
+hide_project_folder = true
+hostname = choco14t
+api_key=

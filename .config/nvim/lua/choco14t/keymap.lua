@@ -40,3 +40,7 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
+-- store jump record
+keymap.set("n", "j", "v:count == 0 ? 'j' : 'm`' .. v:count .. 'j'", { expr = true, noremap = true })
+keymap.set("n", "k", "v:count == 0 ? 'k' : 'm`' .. v:count .. 'k'", { expr = true, noremap = true })
+
