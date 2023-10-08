@@ -23,6 +23,7 @@ require("lazy").setup({
   { "lewis6991/gitsigns.nvim" },
   { "github/copilot.vim" },
   { "wakatime/vim-wakatime" },
+  { "famiu/bufdelete.nvim" },
 
   {
 	  "nvim-telescope/telescope.nvim", tag = "0.1.1",

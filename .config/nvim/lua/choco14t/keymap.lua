@@ -7,9 +7,6 @@ keymap.set("n", ",", ":", { noremap = true })
 -- quit insert mode
 keymap.set("i", "jj", "<Esc>", { noremap = true })
 
--- delete buffer
-keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { noremap = true, silent = true })
-
 -- move window
 keymap.set("n", "sj", "<C-w>j", { noremap = true })
 keymap.set("n", "sk", "<C-w>k", { noremap = true })
