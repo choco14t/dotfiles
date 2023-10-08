@@ -4,6 +4,7 @@ alias la="ls -lAhF --icons"
 
 alias nv="nvim"
 alias gu="gitui"
+alias lag="lazygit"
 
 alias sts="git status -s"
 alias cho="git checkout"
