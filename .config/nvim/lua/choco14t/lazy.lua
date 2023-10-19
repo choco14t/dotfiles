@@ -19,14 +19,13 @@ require("lazy").setup({
   { "mbbill/undotree" },
   { "tpope/vim-surround" },
   { "nvim-tree/nvim-web-devicons" },
-  { "lukas-reineke/indent-blankline.nvim" },
   { "lewis6991/gitsigns.nvim" },
   { "github/copilot.vim" },
   { "wakatime/vim-wakatime" },
   { "famiu/bufdelete.nvim" },
 
   {
-	  "nvim-telescope/telescope.nvim", tag = "0.1.1",
+	  "nvim-telescope/telescope.nvim", tag = "0.1.4",
 	  dependencies = {
       "nvim-lua/plenary.nvim",
       "EdenEast/nightfox.nvim"
@@ -101,6 +100,11 @@ require("lazy").setup({
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
   },
 })
 
