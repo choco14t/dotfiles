@@ -6,9 +6,21 @@ local ok, nvim_tree = pcall(require, "nvim-tree")
 
 if not ok then return end
 
-nvim_tree.setup {}
-
 local api = require("nvim-tree.api")
 
-vim.keymap.set("n", "<C-h>", api.tree.toggle)
+nvim_tree.setup({
+  on_attach = function (bufnr)
+    api.config.mappings.default_on_attach(bufnr)
+
+    vim.keymap.del("n", "s", { buffer = bufnr })
+    vim.keymap.del("n", "<C-e>", { buffer = bufnr })
+  end,
+  view = {
+    width = "20%",
+  },
+})
+
+vim.keymap.set("n", "<C-h>", function()
+  api.tree.toggle({ find_file = true })
+end)
 
