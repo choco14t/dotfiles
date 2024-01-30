@@ -12,40 +12,47 @@ yabai -m config                                 \
     window_opacity_duration      0.0            \
     active_window_opacity        1.0            \
     normal_window_opacity        0.90           \
-    window_opacity               off            \
+    window_opacity               on            \
     insert_feedback_color        0xffd75f5f     \
     active_window_border_color   0xff775759     \
     normal_window_border_color   0xff555555     \
-    window_border_width          4              \
-    window_border_radius         12             \
-    window_border_blur           off            \
-    window_border_hidpi          on             \
     window_border                off            \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \
-    top_padding                  10             \
-    bottom_padding               10             \
-    left_padding                 10             \
-    right_padding                10             \
-    window_gap                   06             \
-    layout                       bsp            \
-    mouse_modifier               fn             \
-    mouse_action1                move           \
-    mouse_action2                resize         \
-    mouse_drop_action            swap
+    top_padding                  8              \
+    bottom_padding               8              \
+    left_padding                 8              \
+    right_padding                8              \
+    window_gap                   8              \
+    layout                       bsp
 
-# rules
+# Space 1
+yabai -m rule --add app="WezTerm" space=1
+yabai -m rule --add app="Notion" space=^1
+
+# Space 2
+yabai -m rule --add app="IntelliJ IDEA" space=^2
+yabai -m rule --add app="IntelliJ IDEA" title="Settings" space=^2 manage=off
+yabai -m rule --add app="Visual Studio Code" space=^2
+
+# Space 3
+yabai -m rule --add app="Firefox" space=^3
+yabai -m rule --add app="Google Chrome" space=^3
+
+# Space 4
+yabai -m rule --add app="Discord" space=^4
+yabai -m rule --add app="Spotify" space=^4
+
+# unmanaged apps
 yabai -m rule --add app="^Around$" manage=off
 yabai -m rule --add app="^DeepL$" manage=off
-yabai -m rule --add app="^Discord$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Shottr$" manage=off
 yabai -m rule --add app="^Slack$" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
-
-echo "yabai configuration loaded.."
+yabai -m rule --add app="Activity Monitor" manage=off
+yabai -m rule --add app="Docker Desktop" manage=off
 
