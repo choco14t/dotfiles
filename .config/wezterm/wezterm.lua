@@ -1,3 +1,7 @@
+require("event")
+require("format")
+require("status")
+
 local wezterm = require("wezterm")
 
 local default_prog = nil
@@ -17,6 +21,7 @@ if is_windows then
 end
 
 local keys = require("keybindings")
+local mouse_bindings = require("mousebinds")
 local colors = is_windows and wezterm.color.load_scheme("colors/nightfox.toml")
 	or wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/nightfox.toml")
 
@@ -31,6 +36,8 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	keys = keys,
 	launch_menu = launch_menu,
+  leader = { key="k", mods="CTRL" },
+  mouse_bindings = mouse_bindings,
 	tab_bar_at_bottom = false,
 	use_fancy_tab_bar = true,
 	use_ime = true,
