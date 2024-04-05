@@ -14,6 +14,7 @@ return {
       background_colour = "#000000",
       render = "compact",
       stages = "static",
+      top_down = false,
       init = function()
         -- when noice is not enabled, install notify on VeryLazy
         if not Util.has("noice.nvim") then
@@ -22,6 +23,12 @@ return {
           end)
         end
       end,
+    },
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = { position = "right" },
     },
   },
 }
