@@ -21,12 +21,10 @@ end
 
 local keys = require("keybindings")
 local mouse_bindings = require("mousebinds")
-local colors = is_windows and wezterm.color.load_scheme("colors/nightfox.toml")
-	or wezterm.color.load_scheme(os.getenv("HOME") .. "/.config/wezterm/colors/dayfox.toml")
 
 return {
 	adjust_window_size_when_changing_font_size = false,
-	colors = colors,
+	color_scheme = "dayfox",
 	default_prog = default_prog,
 	font = wezterm.font_with_fallback({
 		{ family = "PlemolJP Console NF", weight = "Medium" },
