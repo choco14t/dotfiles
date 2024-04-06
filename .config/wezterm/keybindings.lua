@@ -13,8 +13,8 @@ local keys = {
 	{ key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 	{ key = "RightArrow", mods = "SHIFT", action = act.ActivateTabRelative(1) },
 
-	{ key = "-", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 
 	{ key = "w", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
