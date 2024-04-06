@@ -28,7 +28,10 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
-      window = { position = "right" },
+      window = {
+        position = "right",
+        mappings = { ["s"] = "noop" },
+      },
     },
   },
 }
