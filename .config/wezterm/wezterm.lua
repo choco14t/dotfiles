@@ -20,7 +20,7 @@ if is_windows then
 	})
 end
 
-local keys = require("keybindings")
+local keybindings = require("keybindings")
 local mouse_bindings = require("mousebinds")
 
 return {
@@ -32,7 +32,7 @@ return {
 	}),
 	font_size = font_size,
 	hide_tab_bar_if_only_one_tab = true,
-	keys = keys,
+	keys = keybindings.keys,
 	launch_menu = launch_menu,
 	leader = { key = "k", mods = "CTRL" },
 	mouse_bindings = mouse_bindings,

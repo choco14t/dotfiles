@@ -21,6 +21,9 @@ local keys = {
 
 	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
 
+	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+	{ key = "]", mods = "LEADER", action = act.PasteFrom("PrimarySelection") },
+
 	{ key = "l", mods = "ALT", action = act.ShowLauncher },
 	{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
 
@@ -46,4 +49,13 @@ for i = 1, 9 do
 	})
 end
 
-return keys
+local key_tables = {
+	copy_mode = {
+		{ key = "q", mods = "NONE", action = act.CopyMode("Close") },
+	},
+}
+
+return {
+	keys = keys,
+	key_tables = key_tables,
+}
