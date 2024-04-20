@@ -25,7 +25,7 @@ local mouse_bindings = require("mousebinds")
 
 return {
 	adjust_window_size_when_changing_font_size = false,
-	color_scheme = "dayfox",
+	color_scheme = "nightfox",
 	default_prog = default_prog,
 	font = wezterm.font_with_fallback({
 		{ family = "PlemolJP Console NF", weight = "Medium" },
