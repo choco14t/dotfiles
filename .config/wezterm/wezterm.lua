@@ -38,7 +38,7 @@ return {
 	mouse_bindings = mouse_bindings,
 	scrollback_lines = 100000,
 	show_new_tab_button_in_tab_bar = false,
-	use_fancy_tab_bar = true,
+	use_fancy_tab_bar = false,
 	use_ime = true,
 	window_background_opacity = 0.9,
 	window_padding = { left = 8, right = 8, top = 8, bottom = 8 },
