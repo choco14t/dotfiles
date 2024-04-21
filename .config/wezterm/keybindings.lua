@@ -7,6 +7,9 @@ local keys = {
 	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 
+	{ key = "J", mods = "LEADER", action = act.AdjustPaneSize({ "Down", 1000 }) },
+	{ key = "K", mods = "LEADER", action = act.AdjustPaneSize({ "Up", 20 }) },
+
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("DefaultDomain") },
 	{ key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
 	{ key = "LeftArrow", mods = "SHIFT", action = act.ActivateTabRelative(-1) },
@@ -20,6 +23,19 @@ local keys = {
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
 
 	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+
+	{
+		key = ",",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = "Enter new name for tab",
+			action = wezterm.action_callback(function(window, _, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 
 	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 	{ key = "]", mods = "LEADER", action = act.PasteFrom("PrimarySelection") },
