@@ -22,6 +22,7 @@ local keys = {
 	{ key = "w", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
 
+	{ key = "q", mods = "LEADER", action = act.PaneSelect({ mode = "Activate" }) },
 	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
 
 	{
