@@ -9,6 +9,9 @@
   ff = only
 [merge]
   ff = false
+  tool = nvimdiff
+[mergetool]
+  keepBackup = false
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
