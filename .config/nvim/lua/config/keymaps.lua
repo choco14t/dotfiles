@@ -1,6 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+local Util = require("lazyvim.util")
 local keymap = vim.keymap
 local options = { noremap = true, silent = true }
 
@@ -20,3 +21,27 @@ keymap.set("n", "sv", ":<C-u>vs<CR>", options)
 -- store jump record
 keymap.set("n", "j", "v:count == 0 ? 'j' : 'm`' .. v:count .. 'j'", { expr = true, noremap = true, silent = true })
 keymap.set("n", "k", "v:count == 0 ? 'k' : 'm`' .. v:count .. 'k'", { expr = true, noremap = true, silent = true })
+
+-- disabled
+keymap.set("i", "<C-j>", "<Nop>", options)
+keymap.set("n", "<C-j>", "<Nop>", options)
+keymap.set("v", "<C-j>", "<Nop>", options)
+keymap.set("i", "<C-;>", "<Nop>", options)
+keymap.set("n", "<C-;>", "<Nop>", options)
+keymap.set("v", "<C-;>", "<Nop>", options)
+
+-- disable C-hjkl in terminal
+vim.cmd([[
+  tunmap <C-h>
+  tunmap <C-j>
+  tunmap <C-k>
+  tunmap <C-l>
+]])
+
+-- add border to terminal
+local lazyterm = function()
+  Util.terminal(nil, { cwd = Util.root(), border = "rounded" })
+end
+keymap.set("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
+keymap.set("n", "<C-/>", lazyterm, { desc = "Terminal (root dir)" })
+keymap.set("n", "<C-_>", lazyterm, { desc = "which_key_ignore" })
