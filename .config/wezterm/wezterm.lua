@@ -20,7 +20,6 @@ if is_windows then
 	})
 end
 
-local keybindings = require("keybindings")
 local mouse_bindings = require("mousebinds")
 
 return {
@@ -32,9 +31,10 @@ return {
 	}),
 	font_size = font_size,
 	hide_tab_bar_if_only_one_tab = true,
-	-- keys = keybindings.keys,
+	keys = {
+		{ key = "Enter", mods = "ALT", action = "DisableDefaultAssignment" },
+	},
 	launch_menu = launch_menu,
-	-- leader = { key = "k", mods = "CTRL" },
 	mouse_bindings = mouse_bindings,
 	scrollback_lines = 100000,
 	show_new_tab_button_in_tab_bar = false,
