@@ -1,4 +1,5 @@
 return {
+  "folke/twilight.nvim",
   {
     "rcarriga/nvim-notify",
     keys = {
@@ -69,14 +70,13 @@ return {
   },
   {
     "folke/zen-mode.nvim",
+    cmd = "ZenMode",
     opts = {
       plugins = {
         gitsigns = true,
         tmux = true,
       },
-      wezterm = {
-        enabled = true,
-      },
+      window = { backdrop = 0.7 },
     },
     keys = {
       { mode = { "n" }, "<Leader>z", "<CMD>ZenMode<CR>", desc = "Toggle ZenMode" },
