@@ -45,3 +45,24 @@ end
 keymap.set("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
 keymap.set("n", "<C-/>", lazyterm, { desc = "Terminal (root dir)" })
 keymap.set("n", "<C-_>", lazyterm, { desc = "which_key_ignore" })
+
+-- for buffers
+local function del_all_buffers()
+  local current_buf = vim.api.nvim_get_current_buf()
+  local deleted = false
+
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    local buf_name = vim.api.nvim_buf_get_name(buf)
+    local neo_tree = string.match(buf_name, "neo%-tree filesystem")
+
+    if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) and not vim.bo[buf].modified and not neo_tree then
+      vim.api.nvim_buf_delete(buf, { force = false })
+      if not deleted then
+        deleted = true
+      end
+    end
+  end
+
+  Util.notify("Delete all buffers without current buffer.", { level = 2 })
+end
+keymap.set("n", "<leader>ba", del_all_buffers, { noremap = true, silent = true, desc = "Delete Buffers" })
