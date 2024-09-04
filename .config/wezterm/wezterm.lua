@@ -27,7 +27,7 @@ return {
 	color_scheme = "nightfox",
 	default_prog = default_prog,
 	font = wezterm.font_with_fallback({
-		{ family = "PlemolJP Console NF", weight = "Medium" },
+		{ family = "PlemolJP Console NF", weight = "Bold" },
 	}),
 	font_size = font_size,
 	hide_tab_bar_if_only_one_tab = true,
