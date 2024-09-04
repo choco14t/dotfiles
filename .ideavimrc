@@ -37,3 +37,7 @@ set whichwrap=b,s,h,l,<,>,[,],~
 " yank to clipboard
 set clipboard+=unnamed
 
+" IntelliJ IDEA Actions
+nnoremap <Leader>d <Action>(ActivateDatabaseToolWindow)
+nnoremap <Leader>o <Action>(Switcher)
+nnoremap <Leader>z <Action>(ToggleDistractionFreeMode)
