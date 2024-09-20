@@ -38,6 +38,6 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set clipboard+=unnamed
 
 " IntelliJ IDEA Actions
-nnoremap <Leader>d <Action>(ActivateDatabaseToolWindow)
-nnoremap <Leader>o <Action>(Switcher)
-nnoremap <Leader>z <Action>(ToggleDistractionFreeMode)
+nmap <Leader>d <Action>(ActivateDatabaseToolWindow)
+nmap <Leader>o <Action>(Switcher)
+nmap <Leader>z <Action>(ToggleDistractionFreeMode)
