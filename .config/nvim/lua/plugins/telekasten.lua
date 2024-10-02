@@ -28,6 +28,7 @@ return {
     },
     keys = {
       { mode = { "n" }, "<Leader>t", desc = "Telekasten" },
+      { mode = { "n" }, "<Leader>tt", "<Cmd>Telekasten<CR>", desc = "Command palette" },
       { mode = { "n" }, "<Leader>tp", "<Cmd>Telekasten panel<CR>", desc = "Open Panel" },
       { mode = { "n" }, "<Leader>tf", "<Cmd>Telekasten find_notes<CR>", desc = "Find Notes" },
       { mode = { "n" }, "<Leader>tg", "<Cmd>Telekasten search_notes<CR>", desc = "Search Notes" },
