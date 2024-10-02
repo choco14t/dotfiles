@@ -36,7 +36,9 @@ return {
         layout_config = {
           width = 0.60,
           height = 0.90,
-          preview_height = 0.65,
+          vertical = {
+            preview_height = 0.65,
+          },
         },
       },
     },

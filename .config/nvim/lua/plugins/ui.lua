@@ -57,11 +57,14 @@ return {
               "4. Filename: " .. results[4],
               "5. Filename without extension: " .. results[5],
               "6. Extension of the filename: " .. results[6],
-            }, { prompt = "Choose to copy to clipboard:" }, function(choice)
-              local i = tonumber(choice:sub(1, 1))
-              local result = results[i]
-              vim.fn.setreg("*", result)
-              vim.notify("Copied: " .. result)
+            }, { prompt = "Choose to copy to clipboard:" }, function(_, index)
+              if index then
+                local result = results[index]
+                vim.fn.setreg("*", result)
+                vim.notify("Copied: " .. result)
+              else
+                vim.notify("Cancelled")
+              end
             end)
           end,
         },
@@ -85,10 +88,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = {
-      options = {
-        section_separators = "",
-        component_separators = "",
-      },
       sections = {
         lualine_c = {
           LazyVim.lualine.root_dir(),
@@ -102,7 +101,7 @@ return {
             },
           },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { "filename", path = 0 },
+          { "filename" },
         },
         lualine_z = {},
       },
