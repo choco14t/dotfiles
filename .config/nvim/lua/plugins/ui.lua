@@ -90,7 +90,6 @@ return {
     opts = {
       sections = {
         lualine_c = {
-          LazyVim.lualine.root_dir(),
           {
             "diagnostics",
             symbols = {
@@ -100,8 +99,6 @@ return {
               hint = LazyVim.config.icons.diagnostics.Hint,
             },
           },
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { "filename" },
         },
         lualine_z = {},
       },
