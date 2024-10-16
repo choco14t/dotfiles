@@ -30,6 +30,9 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-file-browser.nvim",
+    },
     opts = {
       defaults = {
         layout_strategy = "vertical",
@@ -42,5 +45,27 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      local telescope = require("telescope")
+      local actions = require("telescope").extensions.file_browser.actions
+
+      opts.extensions = {
+        file_browser = {
+          theme = "ivy",
+          hijack_netrw = true,
+          mappings = {
+            ["n"] = {
+              ["a"] = actions.create,
+              ["h"] = actions.goto_parent_dir,
+              ["<PageUp>"] = actions.preview_scrolling_up,
+              ["<PageDown>"] = actions.preview_scrolling_down,
+            },
+          },
+        },
+      }
+
+      telescope.setup(opts)
+      require("telescope").load_extension("file_browser")
+    end,
   },
 }
