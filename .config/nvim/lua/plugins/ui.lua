@@ -115,4 +115,23 @@ return {
       options = { show_buffer_close_icons = false },
     },
   },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      local palette = require("nightfox.palette").load("dawnfox")
+
+      require("hlchunk").setup({})
+      require("hlchunk.mods.chunk")({
+        style = {
+          { fg = palette.cyan.bright },
+          { fg = palette.red.bright },
+        },
+        line_num = { enable = true },
+        duration = 0,
+        delay = 0,
+      }):enable()
+      require("hlchunk.mods.indent")({}):enable()
+    end,
+  },
 }
