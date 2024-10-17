@@ -33,8 +33,33 @@ return {
     dependencies = {
       "nvim-telescope/telescope-file-browser.nvim",
     },
+    keys = {
+      { "<leader>o", "<cmd>Telescope buffers<cr>", desc = "Lists open buffers" },
+      {
+        "sf",
+        function()
+          local telescope = require("telescope")
+
+          local function telescope_buffer_dir()
+            return vim.fn.expand("%:p:h")
+          end
+
+          telescope.extensions.file_browser.file_browser({
+            path = "%:p:h",
+            cwd = telescope_buffer_dir(),
+            respect_gitignore = false,
+            hidden = true,
+            grouped = true,
+            previewer = true,
+            initial_mode = "normal",
+          })
+        end,
+        desc = "Open File Browser with the path of the current buffer",
+      },
+    },
     opts = {
       defaults = {
+        initial_mode = "normal",
         layout_strategy = "vertical",
         layout_config = {
           width = 0.60,
@@ -43,20 +68,31 @@ return {
             preview_height = 0.65,
           },
         },
+        sorting_strategy = "ascending",
       },
     },
     config = function(_, opts)
       local telescope = require("telescope")
-      local actions = require("telescope").extensions.file_browser.actions
+      local actions = require("telescope.actions")
+      local fb_actions = require("telescope").extensions.file_browser.actions
 
       opts.extensions = {
         file_browser = {
-          theme = "ivy",
           hijack_netrw = true,
           mappings = {
             ["n"] = {
-              ["a"] = actions.create,
-              ["h"] = actions.goto_parent_dir,
+              ["N"] = fb_actions.create,
+              ["h"] = fb_actions.goto_parent_dir,
+              ["<C-u>"] = function(prompt_bufnr)
+                for _ = 1, 10 do
+                  actions.move_selection_previous(prompt_bufnr)
+                end
+              end,
+              ["<C-d>"] = function(prompt_bufnr)
+                for _ = 1, 10 do
+                  actions.move_selection_next(prompt_bufnr)
+                end
+              end,
               ["<PageUp>"] = actions.preview_scrolling_up,
               ["<PageDown>"] = actions.preview_scrolling_down,
             },

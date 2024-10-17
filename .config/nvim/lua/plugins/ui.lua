@@ -87,32 +87,68 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    opts = {
-      options = {
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-      },
-      sections = {
-        lualine_c = {
-          {
-            "diagnostics",
-            symbols = {
-              error = LazyVim.config.icons.diagnostics.Error,
-              warn = LazyVim.config.icons.diagnostics.Warn,
-              info = LazyVim.config.icons.diagnostics.Info,
-              hint = LazyVim.config.icons.diagnostics.Hint,
+    config = function(_, opts)
+      local icons = LazyVim.config.icons
+      local options = vim.tbl_deep_extend("force", opts, {
+        options = {
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+        },
+        sections = {
+          lualine_b = {
+            "branch",
+            {
+              "diff",
+              symbols = {
+                added = icons.git.added,
+                modified = icons.git.modified,
+                removed = icons.git.removed,
+              },
+              source = function()
+                local gitsigns = vim.b.gitsigns_status_dict
+                if gitsigns then
+                  return {
+                    added = gitsigns.added,
+                    modified = gitsigns.changed,
+                    removed = gitsigns.removed,
+                  }
+                end
+              end,
             },
           },
+          lualine_c = {
+            {
+              "diagnostics",
+              symbols = {
+                error = LazyVim.config.icons.diagnostics.Error,
+                warn = LazyVim.config.icons.diagnostics.Warn,
+                info = LazyVim.config.icons.diagnostics.Info,
+                hint = LazyVim.config.icons.diagnostics.Hint,
+              },
+            },
+            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+            { LazyVim.lualine.pretty_path() },
+          },
+          lualine_x = {},
+          lualine_z = {},
         },
-        lualine_z = {},
-      },
-    },
+      })
+
+      require("lualine").setup(options)
+    end,
   },
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     opts = {
-      options = { show_buffer_close_icons = false },
+      options = {
+        show_buffer_close_icons = false,
+        auto_toggle_bufferline = false,
+        indicator = {
+          icon = "",
+          style = "underline",
+        },
+      },
     },
   },
   {
