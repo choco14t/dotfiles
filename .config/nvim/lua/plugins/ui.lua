@@ -4,8 +4,11 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    ---@type snacks.Config
     opts = {
+      lazygit = { win = { border = "rounded" } },
       notifier = { enabled = true, style = "compact", top_down = false },
+      terminal = { win = { border = "rounded", position = "float" } },
     },
     keys = {
       {
