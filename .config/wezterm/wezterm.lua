@@ -22,9 +22,24 @@ end
 
 local mouse_bindings = require("mousebinds")
 
+local function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return "Dark"
+end
+
+local function scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return "nightfox"
+	else
+		return "dawnfox"
+	end
+end
+
 return {
 	adjust_window_size_when_changing_font_size = false,
-	color_scheme = "dawnfox",
+	color_scheme = scheme_for_appearance(get_appearance()),
 	default_prog = default_prog,
 	font = wezterm.font_with_fallback({
 		{ family = "MonaspiceRn Nerd Font", weight = "Medium" },
