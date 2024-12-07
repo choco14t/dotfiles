@@ -4,6 +4,12 @@ if [ -d $FISH_DIR ] && [ -r $FISH_DIR ] && [ -x $FISH_DIR ]
     end
 end
 
+if type -q tmux
+    if not tmux show-environment | grep -q "THEME=light"
+        tmux set-environment THEME dark
+    end
+end
+
 if type -q starship
     starship init fish | source
 end
