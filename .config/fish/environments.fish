@@ -4,23 +4,17 @@ if [ -d $FISH_DIR ] && [ -r $FISH_DIR ] && [ -x $FISH_DIR ]
     end
 end
 
-if type -q tmux
-    if not tmux show-environment | grep -q "THEME=light"
-        tmux set-environment THEME dark
-    end
-end
-
-if type -q starship
+if command -q starship
     starship init fish | source
 end
 
 switch (uname)
-case Linux
-    if test -e ~/.asdf/asdf.fish
-      source ~/.asdf/asdf.fish
-    end
-case Darwin
-    if test -e (brew --prefix asdf)/libexec/asdf.fish
-      source (brew --prefix asdf)/libexec/asdf.fish
-    end
+    case Linux
+        if test -e ~/.asdf/asdf.fish
+            source ~/.asdf/asdf.fish
+        end
+    case Darwin
+        if test -e (brew --prefix asdf)/libexec/asdf.fish
+            source (brew --prefix asdf)/libexec/asdf.fish
+        end
 end
