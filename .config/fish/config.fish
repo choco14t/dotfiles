@@ -5,6 +5,13 @@ set -Ux THEME dark
 set -Ux FISH_DIR $HOME/.fish
 set -Ux WAKATIME_HOME $HOME/.config/wakatime
 
+switch (uname)
+    case Linux
+        source (dirname (status --current-filename))/linux.fish
+    case Darwin
+        source (dirname (status --current-filename))/darwin.fish
+end
+
 source (dirname (status --current-filename))/environments.fish
 source (dirname (status --current-filename))/alias.fish
 
