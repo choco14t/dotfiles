@@ -5,6 +5,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 start-at-login = true
 
+accordion-padding = 0
+
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
