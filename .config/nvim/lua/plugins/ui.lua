@@ -174,7 +174,7 @@ return {
       end,
       set_light_mode = function()
         vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd("colorscheme dawnfox")
+        vim.cmd("colorscheme dayfox")
       end,
     },
   },
