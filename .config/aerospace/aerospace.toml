@@ -90,10 +90,6 @@ if.app-id = 'cc.ffitch.shottr'
 run = ['layout floating']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = ['layout floating']
-
-[[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
 run = ['move-node-to-workspace 1']
 
