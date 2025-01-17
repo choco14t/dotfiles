@@ -1,9 +1,8 @@
-adjust-cell-width = -10%
 adjust-cell-height = 15%
 
 background-opacity = 0.85
 
-font-family = MonaspiceRn NFM
+font-family = "Moralerspace Radon NF"
 font-size = 13
 
 cursor-style = block
