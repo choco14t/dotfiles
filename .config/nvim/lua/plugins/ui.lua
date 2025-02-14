@@ -72,6 +72,7 @@ return {
       plugins = {
         gitsigns = true,
         tmux = true,
+        twilight = false,
       },
       window = { backdrop = 0.7 },
     },
@@ -149,7 +150,7 @@ return {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local palette = require("nightfox.palette").load("dawnfox")
+      local palette = require("nightfox.palette").load("nightfox")
 
       require("hlchunk").setup({})
       require("hlchunk.mods.chunk")({
