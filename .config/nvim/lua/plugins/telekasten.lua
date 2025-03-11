@@ -16,6 +16,7 @@ local workingVaults = TelekastenVaults or {}
 return {
   {
     "renerocksai/telekasten.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
     opts = {
       home = vim.fn.expand(os.getenv("ZETTELKASTEN_DIR") or "~/zettelkasten"),
       tempaltes = vim.fn.expand("~/zettelkasten/templates"),
