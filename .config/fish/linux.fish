@@ -1,3 +1,3 @@
-if test -e ~/.asdf/asdf.fish
-    source ~/.asdf/asdf.fish
+if type -q mise
+    mise activate fish | source
 end
