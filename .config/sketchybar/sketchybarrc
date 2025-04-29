@@ -1,5 +1,8 @@
 # Plugins
 PLUGIN_DIR="$CONFIG_DIR/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+
+SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 # Tokens
 source "$CONFIG_DIR/tokens/cha_colors.sh"
@@ -7,8 +10,8 @@ source "$CONFIG_DIR/tokens/colors.sh"
 
 # Defaults
 default=(
-  icon.font="Moralerspace Radon NF:11.0"
-  label.font="Moralerspace Radon NF:11.0"
+  icon.font="Moralerspace Radon NF:Bold:11.0"
+  label.font="Moralerspace Radon NF:Bold:11.0"
 	icon.color=$COLOR_WHITE
 	label.color=$COLOR_WHITE
 )
@@ -16,7 +19,7 @@ default=(
 sketchybar --default "${default[@]}"
 
 # Bar Appearance
-sketchybar --bar position=top height=45 color=$COLOR_TRANSPARENT
+sketchybar --bar position=top height=45 color=$COLOR_TRANSPARENT margin=-12
 
 # Workspaces
 workspaces=$(aerospace list-workspaces --all)
@@ -29,7 +32,7 @@ for sid in $workspaces; do
 	sketchybar --add item space.$sid left \
 		--subscribe space.$sid aerospace_workspace_change \
 		--set space.$sid \
-      background.color=$CHA_COLOR_BROWNRED1 \
+      background.color=$FUTABA_CYAN_50 \
       background.corner_radius=2 \
       background.height=28 \
       background.drawing=off \
@@ -45,78 +48,27 @@ sketchybar --set space.$first_workspace padding_left=2
 sketchybar --set space.$last_workspace padding_right=2
 
 sketchybar --add bracket spaces '/space\..*/' \
-	--set spaces background.color=$CHA_COLOR_BG1_75 \
-		background.corner_radius=4 \
+	--set spaces background.corner_radius=4 \
 		background.height=32 \
 		background.border_width=1 \
-		background.border_color=$CHA_COLOR_YELLOW3
+    background.color=$FUTABA_GREEN1 \
+    background.border_color=$FUTABA_ORANGE_75 \
+    background.height=32
+
+# Spacer
+source "$ITEM_DIR/spacer.sh" 1 left
+
+# Front App
+source "$ITEM_DIR/front_app.sh"
 
 # Clock
-sketchybar --add item clock right \
-	--set clock \
-		background.color=$CHA_COLOR_BG1_75 \
-		background.corner_radius=4 \
-		background.height=32 \
-		background.border_width=1 \
-		background.border_color=$CHA_COLOR_YELLOW3 \
-		label.padding_left=8 \
-		label.padding_right=8 \
-		update_freq=10 \
-		script="$PLUGIN_DIR/clock.sh"
+source "$ITEM_DIR/clock.sh"
 
-# Spacer 1
-sketchybar --add item spacer_1 right \
-  --set spacer_1 width=8
+# Spacer
+source "$ITEM_DIR/spacer.sh" 1 right
 
-# RAM
-sketchybar --add item ram.number right \
-	--set ram.number \
-    label.padding_right=8 \
-		update_freq=2 \
-		script="$PLUGIN_DIR/ram.sh"
-
-sketchybar --add item ram.label right \
-	--set ram.label \
-		label="RAM:" \
-		label.padding_left=8 \
-    label.padding_right=4 \
-		label.color=$CHA_COLOR_YELLOW3
-
-sketchybar --add bracket ram ram.number ram.label \
-	--set ram \
-		background.color=$CHA_COLOR_BG1_75 \
-		background.corner_radius=4 \
-		background.height=32 \
-		background.border_width=1 \
-		background.border_color=$CHA_COLOR_YELLOW3 \
-		padding_left=8
-
-# Spacer 2
-sketchybar --add item spacer_2 right \
-  --set spacer_2 width=8
-
-# CPU
-sketchybar --add item cpu.number right \
-	--set cpu.number \
-    label.padding_right=8 \
-		update_freq=10 \
-		script="$PLUGIN_DIR/cpu.sh"
-
-sketchybar --add item cpu.label right \
-	--set cpu.label \
-		label="CPU:" \
-		label.padding_left=8 \
-    label.padding_right=4 \
-		label.color=$CHA_COLOR_YELLOW3
-
-sketchybar --add bracket cpu cpu.number cpu.label \
-	--set cpu \
-		background.color=$CHA_COLOR_BG1_75 \
-		background.corner_radius=4 \
-		background.height=32 \
-		background.border_width=1 \
-		background.border_color=$CHA_COLOR_YELLOW3 \
-		padding_left=8
+source "$ITEM_DIR/spotify.sh"
 
 # Force all scripts to run the first time (never do this in a script)
+sketchybar --hotload on
 sketchybar --update
