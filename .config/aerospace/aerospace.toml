@@ -147,6 +147,10 @@ if.app-id = 'md.obsidian'
 run = ['move-node-to-workspace 7']
 
 [[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = ['move-node-to-workspace 8']
+
+[[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = ['move-node-to-workspace 9']
 
