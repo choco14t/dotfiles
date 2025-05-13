@@ -4,10 +4,7 @@ enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
 
 # Run Sketchybar, JankyBorders together with AeroSpace
-after-startup-command = [
-  'exec-and-forget sketchybar',
-  'exec-and-forget borders',
-]
+after-startup-command = ['exec-and-forget borders']
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = [
@@ -62,6 +59,8 @@ ctrl-7 = 'workspace 7'
 ctrl-8 = 'workspace 8'
 ctrl-9 = 'workspace 9'
 ctrl-0 = 'workspace 10'
+ctrl-alt-1 = 'workspace 11'
+ctrl-alt-2 = 'workspace 12'
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -93,6 +92,10 @@ k = 'resize height -50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
+
+[workspace-to-monitor-force-assignment]
+11 = ['Sidecar']
+12 = ['Sidecar']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
