@@ -6,13 +6,6 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 # Run Sketchybar, JankyBorders together with AeroSpace
 after-startup-command = ['exec-and-forget borders']
 
-# Notify Sketchybar about workspace change
-exec-on-workspace-change = [
-  '/bin/bash',
-  '-c',
-  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-]
-
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 accordion-padding = 0
