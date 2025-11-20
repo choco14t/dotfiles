@@ -19,4 +19,4 @@ profile=$1
 
 # Using &>/dev/null to avoid print out error below
 # UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
-/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox -P "$profile" &>/dev/null
+$HOME/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox -P "$profile" &>/dev/null
