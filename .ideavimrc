@@ -41,3 +41,4 @@ set clipboard+=unnamed
 nmap <Leader>d <Action>(ActivateDatabaseToolWindow)
 nmap <Leader>o <Action>(Switcher)
 nmap <Leader>z <Action>(ToggleDistractionFreeMode)
+nmap za <Action>(ExpandCollapseToggleAction)
