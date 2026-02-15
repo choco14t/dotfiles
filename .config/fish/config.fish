@@ -5,6 +5,8 @@ set -Ux THEME dark
 set -Ux FISH_DIR $HOME/.fish
 set -Ux WAKATIME_HOME $HOME/.config/wakatime
 
+set --export PATH "$HOME/.local/bin:$PATH"
+
 switch (uname)
     case Linux
         source (dirname (status --current-filename))/linux.fish
