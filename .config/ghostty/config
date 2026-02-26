@@ -1,6 +1,7 @@
 adjust-cell-height = 15%
 
 background-opacity = 0.85
+background-blur = 10
 
 font-family = "Moralerspace Radon"
 font-size = 13
