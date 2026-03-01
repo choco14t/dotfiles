@@ -1,0 +1,72 @@
+#!/bin/sh
+
+# Add Homebrew to exec path (if needed for custom layout engines)
+# yashiki add-exec-path /opt/homebrew/bin
+
+# Layout configuration
+yashiki layout-set-default tatami
+yashiki set-outer-gap 8                            # Gap between windows and screen edges (global)
+yashiki layout-cmd --layout tatami set-inner-gap 8 # Gap between windows (layout-specific)
+
+# Cursor warp (mouse follows focus)
+yashiki set-cursor-warp on-focus-change
+
+# Tag bindings (tag N = bitmask $((1<<(N-1))))
+for i in 1 2 3 4 5 6 7 8 9; do
+  yashiki bind "ctrl-$i" tag-view "$((1 << (i - 1)))"
+  yashiki bind "alt-shift-$i" window-move-to-tag "$((1 << (i - 1)))"
+done
+
+# Window focus
+yashiki bind alt-j window-focus next
+yashiki bind alt-k window-focus prev
+yashiki bind alt-h layout-cmd dec-main-ratio
+yashiki bind alt-l layout-cmd inc-main-ratio
+
+# Window management
+yashiki bind alt-f window-toggle-fullscreen
+yashiki bind alt-shift-f window-toggle-float
+yashiki bind alt-shift-c window-close
+
+# Multi-monitor
+yashiki bind alt-o output-focus next
+yashiki bind alt-shift-o output-send next
+
+# App tags (argument is bitmask)
+yashiki rule-add --app-id "com.mitchellh.ghostty" tags 1
+
+yashiki rule-add --app-id "com.jetbrains.intellij" tags 2
+
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" tags 4
+
+yashiki rule-add --app-id "com.spotify.client" tags 8
+
+yashiki rule-add --app-id "com.hnc.Discord" tags 16
+
+yashiki rule-add --app-id "md.obsidian" tags 64
+
+yashiki rule-add --app-id "com.anthropic.claudefordesktop" tags 256
+yashiki rule-add --app-id "com.openai.chat" tags 256
+
+yashiki rule-add --app-id "com.tinyspeck.slackmacgap" tags 512
+
+# Floating apps
+yashiki rule-add --app-id "cc.ffitch.shottr" float
+yashiki rule-add --app-id "com.apple.systempreferences" float
+yashiki rule-add --app-id "com.bitwarden.desktop" float
+yashiki rule-add --app-id "jp.kiok.nani" float
+
+# Workarounds for Firefox
+yashiki rule-add --subrole AXUnknown ignore
+
+# Ignore popup windows with AXUnknown subrole (dropdowns, autocomplete, etc.)
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole AXUnknown ignore
+
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole none ignore
+
+# Float PiP (Picture-in-Picture) and other floating-level windows
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --window-level floating float
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole "AXStandardWindow" --window-level floating float
+
+# Change lang input (Firefox Developer Edition only)
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole AXDialog --window-level floating ignore
