@@ -45,6 +45,8 @@ yashiki rule-add --app-id "com.hnc.Discord" tags 16
 
 yashiki rule-add --app-id "md.obsidian" tags 64
 
+yashiki rule-add --app-id "com.obsproject.obs-studio" tags 128
+
 yashiki rule-add --app-id "com.anthropic.claudefordesktop" tags 256
 yashiki rule-add --app-id "com.openai.chat" tags 256
 
@@ -56,12 +58,11 @@ yashiki rule-add --app-id "com.apple.systempreferences" float
 yashiki rule-add --app-id "com.bitwarden.desktop" float
 yashiki rule-add --app-id "jp.kiok.nani" float
 
-# Workarounds for Firefox
+# Workarounds
 yashiki rule-add --subrole AXUnknown ignore
 
 # Ignore popup windows with AXUnknown subrole (dropdowns, autocomplete, etc.)
 yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole AXUnknown ignore
-
 yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole none ignore
 
 # Float PiP (Picture-in-Picture) and other floating-level windows
@@ -70,3 +71,5 @@ yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole "AXSta
 
 # Change lang input (Firefox Developer Edition only)
 yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --subrole AXDialog --window-level floating ignore
+
+yashiki rule-add --app-id "com.spotify.client" --subrole AXDialog ignore
