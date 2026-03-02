@@ -12,9 +12,11 @@ yashiki layout-cmd --layout tatami set-inner-gap 8 # Gap between windows (layout
 yashiki set-cursor-warp on-focus-change
 
 # Tag bindings (tag N = bitmask $((1<<(N-1))))
-for i in 1 2 3 4 5 6 7 8 9; do
-  yashiki bind "ctrl-$i" tag-view "$((1 << (i - 1)))"
-  yashiki bind "alt-shift-$i" window-move-to-tag "$((1 << (i - 1)))"
+for i in 1 2 3 4 5 6 7 8 9 0; do
+  tag=$i; [ "$i" -eq 0 ] && tag=10
+  mask=$((1 << (tag - 1)))
+  yashiki bind "ctrl-$i" tag-view "$mask"
+  yashiki bind "alt-shift-$i" window-move-to-tag "$mask"
 done
 
 # Window focus
@@ -57,6 +59,13 @@ yashiki rule-add --app-id "cc.ffitch.shottr" float
 yashiki rule-add --app-id "com.apple.systempreferences" float
 yashiki rule-add --app-id "com.bitwarden.desktop" float
 yashiki rule-add --app-id "jp.kiok.nani" float
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --title "Picture-in-Picture" --window-level floating float
+
+yashiki rule-add --app-id "cc.ffitch.shottr" tags 1023
+yashiki rule-add --app-id "com.apple.systempreferences" tags 1023
+yashiki rule-add --app-id "com.bitwarden.desktop" tags 1023
+yashiki rule-add --app-id "jp.kiok.nani" tags 1023
+yashiki rule-add --app-id "org.mozilla.firefoxdeveloperedition" --title "Picture-in-Picture" --window-level floating tags 1023
 
 # Workarounds
 yashiki rule-add --subrole AXUnknown ignore
