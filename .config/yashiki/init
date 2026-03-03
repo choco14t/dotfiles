@@ -13,7 +13,8 @@ yashiki set-cursor-warp on-focus-change
 
 # Tag bindings (tag N = bitmask $((1<<(N-1))))
 for i in 1 2 3 4 5 6 7 8 9 0; do
-  tag=$i; [ "$i" -eq 0 ] && tag=10
+  tag=$i
+  [ "$i" -eq 0 ] && tag=10
   mask=$((1 << (tag - 1)))
   yashiki bind "ctrl-$i" tag-view "$mask"
   yashiki bind "alt-shift-$i" window-move-to-tag "$mask"
@@ -29,6 +30,7 @@ yashiki bind alt-l layout-cmd inc-main-ratio
 yashiki bind alt-f window-toggle-fullscreen
 yashiki bind alt-shift-f window-toggle-float
 yashiki bind alt-shift-c window-close
+yashiki bind alt-return retile
 
 # Multi-monitor
 yashiki bind alt-o output-focus next
