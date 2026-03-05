@@ -47,6 +47,8 @@ yashiki rule-add --app-id "com.spotify.client" tags 8
 
 yashiki rule-add --app-id "com.hnc.Discord" tags 16
 
+yashiki rule-add --app-id "notion.id" tags 32
+
 yashiki rule-add --app-id "md.obsidian" tags 64
 
 yashiki rule-add --app-id "com.obsproject.obs-studio" tags 128
@@ -58,6 +60,7 @@ yashiki rule-add --app-id "com.tinyspeck.slackmacgap" tags 512
 
 # Floating apps
 yashiki rule-add --app-id "cc.ffitch.shottr" float
+yashiki rule-add --app-id "com.apple.ActivityMonitor" float
 yashiki rule-add --app-id "com.apple.systempreferences" float
 yashiki rule-add --app-id "com.bitwarden.desktop" float
 yashiki rule-add --app-id "jp.kiok.nani" float
