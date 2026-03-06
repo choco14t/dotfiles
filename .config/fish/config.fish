@@ -4,6 +4,7 @@ set -Ux LANG en_US.UTF-8
 set -Ux THEME dark
 set -Ux FISH_DIR $HOME/.fish
 set -Ux WAKATIME_HOME $HOME/.config/wakatime
+set -Ux IS_DEMO 1
 
 set --export PATH "$HOME/.local/bin:$PATH"
 
@@ -18,4 +19,3 @@ source (dirname (status --current-filename))/environments.fish
 source (dirname (status --current-filename))/alias.fish
 
 set --export PATH "$HOME/.local/bin:$PATH"
-
