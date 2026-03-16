@@ -28,4 +28,12 @@ return {
       end,
     },
   },
+  {
+    "choco14t/gaito.nvim",
+    opts = {
+      enabled = true,
+      mask_char = "*",
+      patterns = { ".env*" },
+    },
+  },
 }
