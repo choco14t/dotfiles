@@ -3,9 +3,6 @@ start-at-login = true
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
 
-# Run Sketchybar, JankyBorders together with AeroSpace
-after-startup-command = ['exec-and-forget borders']
-
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 accordion-padding = 0
