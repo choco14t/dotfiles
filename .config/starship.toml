@@ -7,7 +7,7 @@ $directory$git_branch$git_status$aws$terraform
 [  ]($style)"""
 
 [aws]
-format = '[$symbol($profile)(\($region\))(\[$duration\])]($style) '
+format = '[$symbol($profile)(\($region\))]($style) '
 symbol = ''
 
 [aws.region_aliases]
