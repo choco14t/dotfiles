@@ -2,16 +2,16 @@
 
 ## Repository purpose
 
-Personal dotfiles repo managed by chezmoi. Source-state files use chezmoi naming such as `dot_tmux.conf`, `dot_config/`, and `executable_*`; `chezmoi apply --source .` materializes them into `$HOME`.
+Personal dotfiles repo managed by chezmoi. Source-state files use chezmoi naming such as `dot_tmux.conf`, `dot_config/`, and `executable_*`; `chezmoi apply` materializes them into `$HOME`.
 
 ## Common commands
 
-Driven by the top-level `Makefile`:
+Common chezmoi commands:
 
-- `make init` — installs chezmoi into `~/.local/bin` if it is missing.
-- `make diff` / `make status` — inspect what chezmoi would change.
-- `make deploy` / `make apply` — apply this repo as the chezmoi source directory.
-- `make update` — pulls `origin master`, then applies via chezmoi.
+- `chezmoi diff` — inspect what chezmoi would change.
+- `chezmoi status` — show pending changes as a summary.
+- `chezmoi apply` — apply managed dotfiles to `$HOME`.
+- `chezmoi update` — pull the source repo and apply changes.
 
 Fresh-machine setup should use chezmoi directly:
 
