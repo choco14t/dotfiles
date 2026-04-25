@@ -6,21 +6,37 @@ Personal dotfiles managed by [chezmoi](https://www.chezmoi.io/).
 
 This repository is a chezmoi source directory. File and directory names are written in chezmoi's source-state format.
 
-| Source path | Applied path |
-| --- | --- |
-| `dot_config/` | `~/.config/` |
-| `dot_tmux.conf` | `~/.tmux.conf` |
-| `dot_gitconfig-mac` | `~/.gitconfig-mac` |
-| `dot_gitconfig-linux` | `~/.gitconfig-linux` |
-| `dot_claude/` | `~/.claude/` |
-| `executable_*` | executable file without the prefix |
-
-Examples:
-
 ```text
-dot_config/nvim/init.lua -> ~/.config/nvim/init.lua
-dot_config/nvim/dot_gitignore -> ~/.config/nvim/.gitignore
-dot_config/yabai/executable_yabairc -> ~/.config/yabai/yabairc
+dot_tmux.conf             # ~/.tmux.conf
+dot_gitconfig-mac         # ~/.gitconfig-mac
+dot_gitconfig-linux       # ~/.gitconfig-linux
+dot_hushlogin             # ~/.hushlogin
+dot_ideavimrc             # ~/.ideavimrc
+dot_obsidian.vimrc        # ~/.obsidian.vimrc
+dot_gitignore             # ~/.gitignore
+dot_config/               # ~/.config/
+├── aerospace/            # AeroSpace window manager
+├── alacritty/            # Alacritty terminal
+├── borders/              # borders config
+├── fish/                 # fish shell config
+├── fuchi/                # fuchi config
+├── ghostty/              # Ghostty terminal
+├── iterm/                # iTerm2 color schemes
+├── komorebi/             # komorebi window manager
+├── nvim/                 # Neovim / LazyVim config
+├── raycast/              # Raycast scripts
+├── sketchybar/           # SketchyBar config
+├── skhd/                 # skhd hotkey config
+├── starship.toml         # Starship prompt
+├── tmux/                 # tmux theme and helper scripts
+├── wakatime/             # WakaTime config template
+├── wezterm/              # WezTerm terminal
+├── yabai/                # yabai window manager
+├── yashiki/              # yashiki scripts
+└── zellij/               # Zellij terminal workspace
+dot_claude/               # ~/.claude/
+├── CLAUDE.md             # Claude Code instructions
+└── executable_statusline.sh # Claude status line script
 ```
 
 Repository-only files are excluded from chezmoi apply by `.chezmoiignore`.
