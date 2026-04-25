@@ -13,7 +13,11 @@ Driven by the top-level `Makefile`:
 - `make deploy` / `make apply` — apply this repo as the chezmoi source directory.
 - `make update` — pulls `origin master`, then applies via chezmoi.
 
-`install.sh` is the remote bootstrap. It installs chezmoi if needed and runs `chezmoi init --apply git@github.com:choco14t/dotfiles.git` on a fresh machine.
+Fresh-machine setup should use chezmoi directly:
+
+```sh
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/choco14t/dotfiles.git
+```
 
 ## Architecture notes
 

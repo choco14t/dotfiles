@@ -46,13 +46,19 @@ Repository-only files are excluded from chezmoi apply by `.chezmoiignore`.
 Install chezmoi and apply these dotfiles on a new machine:
 
 ```sh
-curl -fs "https://raw.githubusercontent.com/choco14t/dotfiles/master/install.sh" | bash
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/choco14t/dotfiles.git
 ```
 
-Manual setup:
+If chezmoi is already installed:
 
 ```sh
-chezmoi init git@github.com:choco14t/dotfiles.git
+chezmoi init --apply https://github.com/choco14t/dotfiles.git
+```
+
+Preview changes before applying:
+
+```sh
+chezmoi init https://github.com/choco14t/dotfiles.git
 chezmoi diff
 chezmoi apply
 ```
