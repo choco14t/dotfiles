@@ -1,3 +1,8 @@
 .DS_Store
 .wakatime-project
-
+dot_config/fish/completions/
+dot_config/fish/conf.d/
+dot_config/fish/fish_variables
+dot_config/fish/functions/
+dot_config/nvim/lua/choco14t/private.lua
+dot_config/nvim/lua/plugins/local.lua

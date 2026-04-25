@@ -1,25 +1,29 @@
-DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-CANDIDATES := $(wildcard .??*)
-EXCLUSIONS := .DS_Store .git
-DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
+SOURCE_DIR := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+CHEZMOI ?= $(or $(shell command -v chezmoi 2>/dev/null),$(HOME)/.local/bin/chezmoi)
 
 .DEFAULT_GOAL := help
-.PHONY: help
+.PHONY: help init deploy apply diff status update
 
-list: ## Show dotfiles in this repository
-	@$(foreach val, $(DOTFILES), ls -dF $(val);)
+init: ## Install chezmoi if it is missing
+	@if [ ! -x "$(CHEZMOI)" ]; then \
+		mkdir -p "$(HOME)/.local/bin"; \
+		sh -c "$$(curl -fsLS get.chezmoi.io)" -- -b "$(HOME)/.local/bin"; \
+	fi
 
-init: ## Setup the environment
-	@$(foreach val, $(wildcard ./setup/*.sh), DOTPATH=${DOTPATH} bash $(val);)
+deploy: apply ## Apply dotfiles with chezmoi
 
-deploy: ## Create symlinks to your home directory
-	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+apply: ## Apply dotfiles with chezmoi
+	@$(CHEZMOI) apply --source "$(SOURCE_DIR)"
+
+diff: ## Show pending chezmoi changes
+	@$(CHEZMOI) diff --source "$(SOURCE_DIR)"
+
+status: ## Show pending chezmoi changes as a summary
+	@$(CHEZMOI) status --source "$(SOURCE_DIR)"
 
 update: ## Fetch changes for this repository
 	git pull origin master
-
-clean: ## Remove files this created
-	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
+	$(CHEZMOI) apply --source "$(SOURCE_DIR)"
 
 help: ## Show all the targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
