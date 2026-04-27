@@ -2,5 +2,6 @@
 /AGENTS.md
 /CLAUDE.md
 /README.md
+/mise.toml
 
 /.claude/settings.local.template.json

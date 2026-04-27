@@ -1,5 +1,8 @@
 set fish_greeting
 
+# fish 4.x default theme sets fish_color_command to 'normal'; restore green
+set -g fish_color_command green
+
 set -Ux LANG en_US.UTF-8
 set -Ux THEME dark
 set -Ux FISH_DIR $HOME/.fish
