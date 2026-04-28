@@ -1,7 +1,7 @@
 set fish_greeting
 
-# fish 4.x default theme sets fish_color_command to 'normal'; restore green
-set -g fish_color_command green
+# fish 4.x default theme sets fish_color_command to 'normal'; restore bold blue
+set -g fish_color_command blue --bold
 
 set -Ux LANG en_US.UTF-8
 set -Ux THEME dark
