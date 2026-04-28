@@ -15,7 +15,6 @@
     "superpowers@superpowers-marketplace": true
   },
   "env": {
-    "CLAUDE_CODE_NO_FLICKER": "1",
     "IS_DEMO": "1"
   },
   "extraKnownMarketplaces": {
