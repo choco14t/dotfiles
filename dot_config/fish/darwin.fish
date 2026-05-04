@@ -1,3 +1,7 @@
+if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+end
+
 if status is-interactive
     eval (/opt/homebrew/bin/brew shellenv)
 end
@@ -12,13 +16,8 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 
-if test -e ~/.local/bin/mise
-    if status is-interactive
-        ~/.local/bin/mise activate fish | source
-    else
-        ~/.local/bin/mise activate fish --shims | source
-    end
-else if test -e (brew --prefix mise 2>/dev/null)
+# mise (installed via Nix, Homebrew, or standalone)
+if command -q mise
     if status is-interactive
         mise activate fish | source
     else
