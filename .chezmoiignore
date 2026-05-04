@@ -3,5 +3,6 @@
 /CLAUDE.md
 /README.md
 /mise.toml
+/nix
 
 /.claude/settings.local.template.json
