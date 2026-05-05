@@ -1,2 +1,6 @@
 [tools]
 chezmoi = "2.70.2"
+
+[tasks.sync]
+description = "Bidirectional sync: re-add destination changes, then apply source to destination"
+run = "chezmoi re-add && chezmoi apply"
