@@ -6,4 +6,3 @@ dot_config/fish/fish_variables
 dot_config/fish/functions/
 dot_config/nvim/lua/choco14t/private.lua
 dot_config/nvim/lua/plugins/local.lua
-nix/home-work.nix
