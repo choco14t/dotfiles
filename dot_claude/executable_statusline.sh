@@ -32,9 +32,13 @@ jq_get() {
 }
 
 model=$(echo "$data" | jq -r '.model.display_name // "Claude"')
+branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 sep="  ${DIM}·${R}  "
 
 output="${BOLD}${model}${R}"
+if [ -n "$branch" ]; then
+  output="${output}${sep}${DIM}${branch}${R}"
+fi
 
 ctx=$(jq_get '.context_window.used_percentage')
 if [ -n "$ctx" ]; then
