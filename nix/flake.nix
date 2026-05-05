@@ -14,13 +14,22 @@
       systems = [ "aarch64-darwin" "x86_64-darwin" "x86_64-linux" "aarch64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
+    let
+      workConfig = ./home-work.nix;
+      hasWorkConfig = builtins.pathExists workConfig;
+    in
     {
       homeConfigurations = {
         "choco14t" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           modules = [ ./home.nix ];
         };
-      };
+      } // (if hasWorkConfig then {
+        "work" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [ workConfig ];
+        };
+      } else { });
 
       # For convenience: nix develop
       devShells = forAllSystems (system:
