@@ -79,3 +79,71 @@ chezmoi diff
 chezmoi apply
 chezmoi update
 ```
+
+## Nix / Home Manager
+
+This repository includes a Nix flake for managing packages via [Home Manager](https://github.com/nix-community/home-manager).
+
+### Prerequisites
+
+Install Nix with flakes enabled:
+
+```sh
+curl -L https://nixos.org/nix/install | sh
+```
+
+After installation, ensure flakes are enabled by adding to `~/.config/nix/nix.conf`:
+
+```text
+experimental-features = nix-command flakes
+```
+
+### Directory
+
+```text
+nix/
+├── flake.nix       # Flake definition with homeConfigurations
+├── flake.lock      # Dependency lock file
+├── home.nix        # Personal (choco14t) configuration
+├── home-work.nix   # Work configuration (uses env vars)
+└── modules/
+    └── common.nix  # Shared packages and settings
+```
+
+### Usage
+
+If Home Manager is not yet installed, run via `nix develop` or `nix run`:
+
+```sh
+cd nix
+
+# Option 1: Use the dev shell
+nix develop
+home-manager switch --flake .#choco14t
+
+# Option 2: Run directly
+nix run home-manager/master -- switch --flake .#choco14t
+```
+
+Once Home Manager is installed, apply configurations directly:
+
+```sh
+cd nix
+home-manager switch --flake .#choco14t
+```
+
+For work configuration (requires `--impure` to read environment variables):
+
+```sh
+cd nix
+home-manager switch --impure --flake .#work
+```
+
+### Development Shell
+
+Enter a shell with Home Manager available:
+
+```sh
+cd nix
+nix develop
+```
