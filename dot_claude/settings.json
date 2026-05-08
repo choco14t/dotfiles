@@ -18,6 +18,7 @@
       "Read(~/.config/gh/**)",
       "Read(~/.git-credentials)",
       "Read(~/.ssh/**)",
+      "Read(**/.env)",
       "Write(**/*key)",
       "Write(**/*secrets*)",
       "Write(**/*token*)"
@@ -25,7 +26,7 @@
     "ask": [],
     "defaultMode": "acceptEdits"
   },
-  "model": "claude-opus-4-5-20251101",
+  "model": "claude-opus-4-6[1m]",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
