@@ -35,24 +35,37 @@ model=$(echo "$data" | jq -r '.model.display_name // "Claude"')
 branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 sep="  ${DIM}·${R}  "
 
-output="${BOLD}${model}${R}"
+effort=$(jq_get '.effort.level')
+
+line1="${BOLD}${model}${R}"
+if [ -n "$effort" ]; then
+  line1="${line1}${sep}${DIM}effort:${R}${BOLD}${effort}${R}"
+fi
 if [ -n "$branch" ]; then
-  output="${output}${sep}${DIM}${branch}${R}"
+  line1="${line1}${sep}${DIM}${branch}${R}"
 fi
 
+line2=""
 ctx=$(jq_get '.context_window.used_percentage')
 if [ -n "$ctx" ]; then
-  output="${output}${sep}ctx $(dot "$ctx")"
+  line2="ctx $(dot "$ctx")"
 fi
 
 five=$(jq_get '.rate_limits.five_hour.used_percentage')
 if [ -n "$five" ]; then
-  output="${output}${sep}5h $(dot "$five")"
+  [ -n "$line2" ] && line2="${line2}${sep}"
+  line2="${line2}5h $(dot "$five")"
 fi
 
 week=$(jq_get '.rate_limits.seven_day.used_percentage')
 if [ -n "$week" ]; then
-  output="${output}${sep}7d $(dot "$week")"
+  [ -n "$line2" ] && line2="${line2}${sep}"
+  line2="${line2}7d $(dot "$week")"
+fi
+
+output="$line1"
+if [ -n "$line2" ]; then
+  output="${output}"$'\n'"${line2}"
 fi
 
 printf '%s' "$output"
