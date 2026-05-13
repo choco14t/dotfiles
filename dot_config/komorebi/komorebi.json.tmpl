@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   include "dot_config/komorebi/.komorebi-mac.json" -}}
+{{- else if eq .chezmoi.os "windows" -}}
+{{-   include "dot_config/komorebi/.komorebi-windows.json" -}}
+{{- end -}}
+

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.28/schema.json",
+  "app_specific_configuration_path": "$HOME/.config/komorebi/applications.json",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 4,
+  "default_container_padding": 4,
+  "border": false,
+  "border_width": 0,
+  "border_offset": 0,
+  "border_colours": {
+    "single": "#81a1c1",
+    "stack": "#a3be8c",
+    "monocle": "#bf616a",
+    "unfocused": "#4c566a"
+  },
+  "floating_window_aspect_ratio": "Widescreen",
+  "floating_layer_behaviour": "Float",
+  "resize_delta": 100,
+  "ignore_rules": [],
+  "floating_applications": [],
+  "manage_rules": [],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "1",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Zen",
+              "matching_strategy": "Equals"
+            }
+          ]
+        },
+        {
+          "name": "2",
+          "layout": "BSP"
+        },
+        {
+          "name": "3",
+          "layout": "BSP"
+        },
+        {
+          "name": "4",
+          "layout": "BSP"
+        },
+        {
+          "name": "5",
+          "layout": "BSP"
+        },
+        {
+          "name": "6",
+          "layout": "BSP"
+        },
+        {
+          "name": "7",
+          "layout": "BSP"
+        },
+        {
+          "name": "8",
+          "layout": "BSP"
+        },
+        {
+          "name": "9",
+          "layout": "BSP"
+        },
+        {
+          "name": "10",
+          "layout": "BSP"
+        }
+      ]
+    }
+  ]
+}
