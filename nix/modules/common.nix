@@ -36,5 +36,8 @@
     mise
     jq
     yq
+
+    # Window Manager
+    komorebi-full
   ];
 }
