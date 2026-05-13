@@ -28,14 +28,21 @@
           "initial_workspace_rules": [
             {
               "kind": "Exe",
-              "id": "Zen",
+              "id": "Ghostty",
               "matching_strategy": "Equals"
             }
           ]
         },
         {
           "name": "2",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "IntelliJ IDEA",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "3",
@@ -43,31 +50,80 @@
         },
         {
           "name": "4",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Spotify",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "5",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Discord",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "6",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Spotify",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "7",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Obsidian",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "8",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "OBS",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "9",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Claude",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
           "name": "10",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Slack",
+              "matching_strategy": "Equals"
+            }
+          ]
         }
       ]
     }
