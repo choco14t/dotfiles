@@ -46,7 +46,19 @@
         },
         {
           "name": "3",
-          "layout": "BSP"
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Firefox Developer Edition",
+              "matching_strategy": "Equals"
+            },
+            {
+              "kind": "Title",
+              "id": "Google Chrome",
+              "matching_strategy": "Contains"
+            }
+          ]
         },
         {
           "name": "4",

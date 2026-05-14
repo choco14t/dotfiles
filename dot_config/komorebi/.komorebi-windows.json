@@ -14,46 +14,129 @@
     "monocle": "#bf616a",
     "unfocused": "#4c566a"
   },
-  "stackbar": {
-    "height": 25,
-    "mode": "OnStack",
-    "tabs": {
-      "width": 100,
-      "focused_text": "#88c0d0",
-      "unfocused_text": "#4c566a",
-      "background": "#2e3440"
-    }
-  },
+  "floating_window_aspect_ratio": "Widescreen",
+  "floating_layer_behaviour": "Float",
+  "resize_delta": 100,
+  "ignore_rules": [],
+  "floating_applications": [],
+  "manage_rules": [],
   "monitors": [
     {
       "workspaces": [
         {
-          "name": "I",
-          "layout": "BSP"
+          "name": "1",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Ghostty",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
-          "name": "II",
-          "layout": "VerticalStack"
+          "name": "2",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "IntelliJ IDEA",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
-          "name": "III",
-          "layout": "HorizontalStack"
+          "name": "3",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Firefox Developer Edition",
+              "matching_strategy": "Equals"
+            },
+            {
+              "kind": "Title",
+              "id": "Google Chrome",
+              "matching_strategy": "Contains"
+            }
+          ]
         },
         {
-          "name": "IV",
-          "layout": "UltrawideVerticalStack"
+          "name": "4",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Spotify",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
-          "name": "V",
-          "layout": "Rows"
+          "name": "5",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Discord",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
-          "name": "VI",
-          "layout": "Grid"
+          "name": "6",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Spotify",
+              "matching_strategy": "Equals"
+            }
+          ]
         },
         {
-          "name": "VII",
-          "layout": "RightMainVerticalStack"
+          "name": "7",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Obsidian",
+              "matching_strategy": "Equals"
+            }
+          ]
+        },
+        {
+          "name": "8",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "OBS",
+              "matching_strategy": "Equals"
+            }
+          ]
+        },
+        {
+          "name": "9",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Claude",
+              "matching_strategy": "Equals"
+            }
+          ]
+        },
+        {
+          "name": "10",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Slack",
+              "matching_strategy": "Equals"
+            }
+          ]
         }
       ]
     }
