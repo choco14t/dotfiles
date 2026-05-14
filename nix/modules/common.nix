@@ -40,4 +40,13 @@
     # Window Manager
     komorebi-full
   ];
+
+  launchd.agents.komorebi = {
+    enable = true;
+    config = {
+      Label = "com.lgug2z.komorebi";
+      ProgramArguments = [ "/bin/sh" "-c" "pgrep -x komorebi || ${pkgs.komorebi-full}/bin/komorebic start" ];
+      RunAtLoad = true;
+    };
+  };
 }
