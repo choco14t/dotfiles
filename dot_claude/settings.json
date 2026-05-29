@@ -61,6 +61,8 @@
   },
   "outputStyle": "Explanatory",
   "language": "japanese",
+  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
-  "theme": "auto"
+  "theme": "auto",
+  "skipAutoPermissionPrompt": true
 }
