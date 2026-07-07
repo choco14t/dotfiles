@@ -21,3 +21,5 @@ window-theme = system
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+
+cursor-color = cell-foreground
