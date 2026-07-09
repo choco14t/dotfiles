@@ -39,6 +39,8 @@
 
     # Window Manager
     komorebi-full
+
+    herdr
   ];
 
   launchd.agents.komorebi = {
