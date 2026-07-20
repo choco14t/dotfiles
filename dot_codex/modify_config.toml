@@ -1,0 +1,34 @@
+#!/bin/bash
+set -euo pipefail
+
+config=$(cat)
+
+lines='tui.status_line = ["approval-mode", "model", "git-branch", "context-used", "five-hour-limit", "weekly-limit"]
+tui.status_line_use_colors = true'
+
+if printf '%s' "$config" | grep -qE 'status_line\s*='; then
+  printf '%s\n' "$config"
+  exit 0
+fi
+
+if [ -z "$config" ]; then
+  printf '%s\n' "$lines"
+  exit 0
+fi
+
+awk '
+  !inserted && /^\[/ {
+    print "tui.status_line = [\"approval-mode\", \"model\", \"git-branch\", \"context-used\", \"five-hour-limit\", \"weekly-limit\"]"
+    print "tui.status_line_use_colors = true"
+    print ""
+    inserted=1
+  }
+  { print }
+  END {
+    if (!inserted) {
+      print ""
+      print "tui.status_line = [\"approval-mode\", \"model\", \"git-branch\", \"context-used\", \"five-hour-limit\", \"weekly-limit\"]"
+      print "tui.status_line_use_colors = true"
+    }
+  }
+' <<< "$config"
