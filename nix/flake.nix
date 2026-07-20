@@ -7,17 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    komorebi-for-mac = {
-      url = "github:LGUG2Z/komorebi-for-mac";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     herdr = {
       url = "github:ogulcancelik/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, komorebi-for-mac, herdr, ... }:
+  outputs = { nixpkgs, home-manager, herdr, ... }:
     let
       systems = [ "aarch64-darwin" "x86_64-darwin" "x86_64-linux" "aarch64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -38,7 +34,7 @@
       };
       pkgsFor = system: import nixpkgs {
         inherit system;
-        overlays = [ overlay komorebi-for-mac.overlays.default herdr.overlays.default ];
+        overlays = [ overlay herdr.overlays.default ];
       };
     in
     {
