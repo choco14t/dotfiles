@@ -19,14 +19,14 @@
       "Read(~/.git-credentials)",
       "Read(~/.ssh/**)",
       "Read(**/.env)",
-      "Write(**/*key)",
-      "Write(**/*secrets*)",
-      "Write(**/*token*)"
+      "Edit(**/*key)",
+      "Edit(**/*secrets*)",
+      "Edit(**/*token*)"
     ],
     "ask": [],
     "defaultMode": "acceptEdits"
   },
-  "model": "claude-opus-4-6[1m]",
+  "model": "claude-opus-4-6",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
