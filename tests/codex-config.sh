@@ -9,7 +9,7 @@ if [[ ! -x "$filter" ]]; then
   exit 1
 fi
 
-expected='tui.status_line = ["approval-mode", "model", "git-branch", "context-used", "five-hour-limit", "weekly-limit"]
+expected='tui.status_line = ["approval-mode", "model", "git-branch", "context-used", "used-tokens", "five-hour-limit", "weekly-limit"]
 tui.status_line_use_colors = true'
 
 actual=$(printf '' | "$filter")
@@ -37,6 +37,22 @@ trust_level = "trusted"'
 actual_twice=$(printf '%s\n' "$actual" | "$filter")
 [[ "$actual_twice" == "$actual" ]] || {
   printf 'FAIL: filter is not idempotent\n' >&2
+  exit 1
+}
+
+legacy='tui.status_line = ["approval-mode", "model", "git-branch", "context-used", "five-hour-limit", "weekly-limit"]
+tui.status_line_use_colors = true'
+actual=$(printf '%s\n' "$legacy" | "$filter")
+[[ "$actual" == "$expected" ]] || {
+  printf 'FAIL: previous managed settings were not migrated\n' >&2
+  exit 1
+}
+
+custom='tui.status_line = ["model"]
+tui.status_line_use_colors = false'
+actual=$(printf '%s\n' "$custom" | "$filter")
+[[ "$actual" == "$custom" ]] || {
+  printf 'FAIL: custom settings were not preserved\n' >&2
   exit 1
 }
 
