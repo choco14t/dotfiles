@@ -1,149 +1,98 @@
 # dotfiles
 
-Personal dotfiles managed by [chezmoi](https://www.chezmoi.io/).
+Personal packages and dotfiles managed by Nix and Home Manager.
 
-## Directory
-
-This repository is a chezmoi source directory. File and directory names are written in chezmoi's source-state format.
+## Repository layout
 
 ```text
-AGENTS.md                         # AI agent instructions (repo-only)
-dot_tmux.conf                     # ~/.tmux.conf
-dot_gitconfig.tmpl                # ~/.gitconfig (chezmoi template, OS-aware)
-dot_hushlogin                     # ~/.hushlogin
-dot_ideavimrc                     # ~/.ideavimrc
-dot_obsidian.vimrc                # ~/.obsidian.vimrc
-dot_gitignore                     # ~/.gitignore
-dot_config/                       # ~/.config/
-├── aerospace/                    # AeroSpace window manager
-├── alacritty/                    # Alacritty terminal
-├── borders/                      # borders config
-├── fish/                         # fish shell config
-├── fuchi/                        # fuchi config
-├── ghostty/                      # Ghostty terminal
-├── iterm/                        # iTerm2 color schemes
-├── komorebi/                     # komorebi window manager
-├── nvim/                         # Neovim / LazyVim config
-├── raycast/                      # Raycast scripts
-├── sketchybar/                   # SketchyBar config
-├── skhd/                         # skhd hotkey config
-├── starship.toml                 # Starship prompt
-├── tmux/                         # tmux theme and helper scripts
-├── wakatime/                     # WakaTime config template
-├── wezterm/                      # WezTerm terminal
-├── yabai/                        # yabai window manager
-├── yashiki/                      # yashiki scripts
-└── zellij/                       # Zellij terminal workspace
-dot_claude/                       # ~/.claude/
-├── CLAUDE.md.tmpl                # Claude Code instructions (chezmoi template)
-├── executable_statusline.sh      # Claude status line script
-├── settings.json                 # Claude Code settings
-└── settings.local.template.json  # Template for local settings overrides
+flake.nix                 # Home Manager configurations and development shells
+flake.lock                # Pinned Nix inputs
+home/
+├── modules/              # Shared packages and dotfile deployment
+└── profiles/             # Personal and work-specific settings
+files/
+├── home/                 # Files deployed directly below $HOME
+├── config/               # Files deployed below $XDG_CONFIG_HOME
+├── claude/               # Claude Code configuration
+├── codex/                # Codex configuration helpers
+└── windows/komorebi/     # Tracked Windows configuration; not deployed by Home Manager
+examples/                 # Local-only configuration examples
+tests/                    # Migration and configuration contract tests
 ```
 
-Repository-only files are excluded from chezmoi apply by `.chezmoiignore`.
+Home Manager targets macOS and Linux. The Komorebi files remain in Git for use
+on Windows, but this repository does not install them automatically.
 
-## Setup
+## Fresh-machine setup
 
-Install chezmoi and apply these dotfiles on a new machine:
+Install Nix, clone the repository, and run the matching Home Manager
+configuration. The extra feature flag lets the first invocation use the flake
+before Home Manager has written the persistent Nix setting.
 
 ```sh
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/choco14t/dotfiles.git
+git clone https://github.com/choco14t/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+
+# Personal Apple Silicon Mac
+nix --extra-experimental-features 'nix-command flakes' develop \
+  -c home-manager switch --flake .#choco14t
+
+# Personal x86_64 Linux machine
+nix --extra-experimental-features 'nix-command flakes' develop \
+  -c home-manager switch --flake .#choco14t-linux
 ```
 
-If chezmoi is already installed:
+The work profile reads `USER` and `HOME` from the environment and therefore
+requires impure evaluation:
 
 ```sh
-chezmoi init --apply https://github.com/choco14t/dotfiles.git
+nix develop -c home-manager switch --impure --flake .#work
 ```
 
-Preview changes before applying:
+When migrating an existing home directory, use a unique backup suffix for the
+first activation so Home Manager does not overwrite unmanaged files:
 
 ```sh
-chezmoi init https://github.com/choco14t/dotfiles.git
-chezmoi diff
-chezmoi apply
+nix develop -c home-manager switch -b pre-home-manager --flake .#choco14t
 ```
 
-When working from this checkout directly, pass the source directory explicitly:
+## Daily use
+
+Apply the current configuration:
 
 ```sh
-chezmoi diff --source ~/.dotfiles
-chezmoi apply --source ~/.dotfiles
+home-manager switch --flake ~/.dotfiles#choco14t
 ```
 
-After `chezmoi init` has created `~/.local/share/chezmoi`, the short commands work:
+Preview and build it without activating:
 
 ```sh
-chezmoi diff
-chezmoi apply
-chezmoi update
+home-manager build --flake ~/.dotfiles#choco14t
 ```
 
-## Nix / Home Manager
+## Updating Neovim plugins
 
-This repository includes a Nix flake for managing packages via [Home Manager](https://github.com/nix-community/home-manager).
-
-### Prerequisites
-
-Install Nix with flakes enabled:
+The deployed Neovim configuration is immutable because Home Manager links it
+through the Nix store. Launch Neovim with the repository copy as its config
+directory when updating `lazy-lock.json`:
 
 ```sh
-curl -L https://nixos.org/nix/install | sh
+nvim-dotfiles
 ```
 
-After installation, ensure flakes are enabled by adding to `~/.config/nix/nix.conf`:
-
-```text
-experimental-features = nix-command flakes
-```
-
-### Directory
-
-```text
-nix/
-├── flake.nix       # Flake definition with homeConfigurations
-├── flake.lock      # Dependency lock file
-├── home.nix        # Personal (choco14t) configuration
-├── home-work.nix   # Work configuration (uses env vars)
-└── modules/
-    └── common.nix  # Shared packages and settings
-```
-
-### Usage
-
-If Home Manager is not yet installed, run via `nix develop` or `nix run`:
+Then run `:Lazy update` and commit the resulting
+`files/config/nvim/lazy-lock.json` change. Set `DOTFILES_ROOT` when working from
+another checkout:
 
 ```sh
-cd nix
-
-# Option 1: Use the dev shell
-nix develop
-home-manager switch --flake .#choco14t
-
-# Option 2: Run directly
-nix run home-manager/master -- switch --flake .#choco14t
+DOTFILES_ROOT="$PWD" nvim-dotfiles
 ```
 
-Once Home Manager is installed, apply configurations directly:
+## Verification
 
 ```sh
-cd nix
-home-manager switch --flake .#choco14t
-```
-
-For work configuration (requires `--impure` to read environment variables):
-
-```sh
-cd nix
-home-manager switch --impure --flake .#work
-```
-
-### Development Shell
-
-Enter a shell with Home Manager available:
-
-```sh
-cd nix
-nix develop
+bash tests/codex-config.sh
+bash tests/claude-statusline.sh
+bash tests/home-manager.sh
+nix flake check
 ```
