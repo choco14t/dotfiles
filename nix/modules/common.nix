@@ -38,5 +38,6 @@
     yq
 
     herdr
+    backlog-md
   ];
 }

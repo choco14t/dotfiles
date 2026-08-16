@@ -11,9 +11,13 @@
       url = "github:ogulcancelik/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    backlog-md = {
+      url = "github:MrLesk/Backlog.md";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, herdr, ... }:
+  outputs = { nixpkgs, home-manager, herdr, backlog-md, ... }:
     let
       systems = [ "aarch64-darwin" "x86_64-darwin" "x86_64-linux" "aarch64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -32,9 +36,12 @@
           };
         });
       };
+      backlog-md-overlay = final: prev: {
+        backlog-md = backlog-md.packages.${final.stdenv.hostPlatform.system}.default;
+      };
       pkgsFor = system: import nixpkgs {
         inherit system;
-        overlays = [ overlay herdr.overlays.default ];
+        overlays = [ overlay herdr.overlays.default backlog-md-overlay ];
       };
     in
     {
