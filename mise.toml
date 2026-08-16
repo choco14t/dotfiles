@@ -1,5 +1,6 @@
 [tools]
 chezmoi = "2.70.2"
+hunk = "0.18.2"
 
 [tasks.sync]
 description = "Bidirectional sync: re-add destination changes, then apply source to destination"
