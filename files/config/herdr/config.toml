@@ -199,6 +199,8 @@ agent_panel_sort = "priority"
 # Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
 # accent = "cyan"
 
+tab_bar_position = "bottom"
+
 # Background notification popup delivery
 [ui.toast]
 # off = disable pop-up notifications
