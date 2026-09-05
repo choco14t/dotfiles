@@ -17,7 +17,6 @@ files/
 ├── codex/                # Codex configuration helpers
 └── windows/komorebi/     # Tracked Windows configuration; not deployed by Home Manager
 examples/                 # Local-only configuration examples
-tests/                    # Migration and configuration contract tests
 ```
 
 Home Manager targets macOS and Linux. The Komorebi files remain in Git for use
@@ -91,8 +90,5 @@ DOTFILES_ROOT="$PWD" nvim-dotfiles
 ## Verification
 
 ```sh
-bash tests/codex-config.sh
-bash tests/claude-statusline.sh
-bash tests/home-manager.sh
 nix flake check
 ```

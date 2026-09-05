@@ -12,9 +12,6 @@ deploys the source files under `files/` to the user's home directory.
 - `home-manager switch --flake .#choco14t` — activate the personal macOS configuration.
 - `home-manager build --flake .#choco14t-linux` — build the personal Linux configuration.
 - `home-manager switch --impure --flake .#work` — activate the environment-derived work configuration.
-- `bash tests/codex-config.sh` — test the idempotent Codex config filter.
-- `bash tests/claude-statusline.sh` — test Claude token-count formatting.
-- `bash tests/home-manager.sh` — test macOS/Linux mappings and migration invariants.
 
 ## Architecture notes
 

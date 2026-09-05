@@ -1,5 +1,6 @@
 .DS_Store
 /nvim.log
+/tests/
 files/config/fish/completions/
 files/config/fish/conf.d/
 files/config/fish/fish_variables
