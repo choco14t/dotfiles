@@ -40,3 +40,6 @@ vim.o.directory = "~/.vim/tmp"
 
 -- spell
 vim.o.spell = false
+
+-- hide statusline
+vim.opt.laststatus = 0
