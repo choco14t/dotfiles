@@ -1,3 +1,8 @@
+local function cancel_close(view)
+  view:goto_main()
+  view:close()
+end
+
 return {
   "folke/twilight.nvim",
   {
@@ -17,6 +22,23 @@ return {
           Snacks.notifier.hide()
         end,
         desc = "Dismiss All Notifications",
+      },
+    },
+  },
+  {
+    "folke/trouble.nvim",
+    opts = {
+      modes = {
+        lsp = {
+          focus = true,
+          keys = { ["<cr>"] = "jump_close", ["<esc>"] = cancel_close },
+          win = { type = "float", border = "rounded" },
+        },
+        symbols = {
+          focus = true,
+          keys = { ["<cr>"] = "jump_close", ["<esc>"] = cancel_close },
+          win = { type = "float", border = "rounded" },
+        },
       },
     },
   },
