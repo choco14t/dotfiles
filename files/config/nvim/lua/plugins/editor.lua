@@ -36,10 +36,4 @@ return {
       patterns = { ".env*" },
     },
   },
-  {
-    "mvllow/modes.nvim",
-    version = "*",
-    event = { "CursorMoved", "CursorMovedI" },
-    opts = { line_opacity = 0.3 },
-  },
 }
