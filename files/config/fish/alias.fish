@@ -1,10 +1,10 @@
 alias ls eza
-abbr ll "ls -lhF --icons"
-abbr la "ls -lAhF --icons"
+alias nv nvim
+alias gu gitui
+alias lag lazygit
 
-abbr nv nvim
-abbr gu gitui
-abbr lag lazygit
+abbr ll "ls -lhF --icons auto"
+abbr la "ls -lAhF --icons auto"
 
 abbr sts "git status -s"
 abbr cho "git checkout"
