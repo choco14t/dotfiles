@@ -97,9 +97,9 @@ focus_pane_right = ["alt+shift+right", "prefix+l"]
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
-# split_vertical = "prefix+v"
-# split_horizontal = "prefix+minus"
-# close_pane = "prefix+x"
+split_vertical = ""
+split_horizontal = ""
+close_pane = ""
 # zoom = "prefix+z"       # legacy alias: fullscreen
 # resize_mode = "prefix+r"
 # toggle_sidebar = "prefix+b"
@@ -117,10 +117,44 @@ focus_pane_right = ["alt+shift+right", "prefix+l"]
 # type = "shell" runs detached in the background.
 # type = "pane" opens a temporary pane and closes it when the command exits.
 # On Windows, command strings run through cmd.exe /d /c.
-# [[keys.command]]
+[[keys.command]]
 # key = "prefix+alt+g"
 # type = "pane"
 # command = "lazygit"
+
+key = "prefix+shift+w"
+type = "plugin_action"
+command = "corral.open"
+description = "open corral"
+
+[[keys.command]]
+key = "prefix+v"
+type = "shell"
+command = "herdr pane split --direction right --focus && herdr-paddock --direction right"
+description = "Split right and balance panes"
+
+[[keys.command]]
+key = "prefix+minus"
+type = "shell"
+command = "herdr pane split --direction down --focus && herdr-paddock --direction down"
+description = "Split down and balance panes"
+
+[[keys.command]]
+key = "prefix+x"
+type = "shell"
+command = '''
+pane=$(herdr pane current) || exit 1
+pane_id=$(printf '%s' "$pane" | jq -er '.result.pane.pane_id') || exit 1
+tab_id=$(printf '%s' "$pane" | jq -er '.result.pane.tab_id') || exit 1
+direction=$(herdr-paddock --tab "$tab_id" --parent-direction "$pane_id") || exit 1
+herdr pane close "$pane_id" || exit 1
+[ "$direction" = none ] && exit 0
+panes=$(herdr pane list) || exit 1
+if printf '%s' "$panes" | jq -e --arg tab "$tab_id" '.result.panes | any(.tab_id == $tab)' > /dev/null; then
+  herdr-paddock --tab "$tab_id" --direction "$direction"
+fi
+'''
+description = "Close pane and balance remaining panes"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
