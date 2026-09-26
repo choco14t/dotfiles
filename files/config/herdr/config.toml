@@ -13,7 +13,7 @@ name = "terminal"
 
 # Follow host terminal light/dark appearance and switch Herdr UI themes.
 # Existing manual behavior is unchanged unless this is true.
-# auto_switch = false
+auto_switch = true
 # dark_name = "catppuccin"
 # light_name = "catppuccin-latte"
 
@@ -24,6 +24,47 @@ name = "terminal"
 # accent = "#f5c2e7"
 # red = "#ff6188"
 # green = "#a6e3a1"
+[theme.custom.light]
+accent = "#477D2C"
+panel_bg = "#F3F1E8"
+sidebar_bg = "#F3F1E8"
+active_row_bg = "#DEE5D8"
+selection_bg = "#D1DDD1"
+surface0 = "#E9EADF"
+surface1 = "#DEE5D8"
+surface_dim = "#F3F1E8"
+overlay0 = "#BCC9BD"
+overlay1 = "#64736B"
+text = "#26332D"
+subtext0 = "#64736B"
+mauve = "#79599D"
+green = "#477D2C"
+yellow = "#9A7B16"
+red = "#B8463D"
+blue = "#317D9B"
+teal = "#16867F"
+peach = "#B85F22"
+
+[theme.custom.dark]
+accent = "#A1E66C"
+panel_bg = "#101713"
+sidebar_bg = "#101713"
+active_row_bg = "#1D2A23"
+selection_bg = "#294038"
+surface0 = "#16201B"
+surface1 = "#1D2A23"
+surface_dim = "#101713"
+overlay0 = "#31463D"
+overlay1 = "#87998F"
+text = "#E6E8DF"
+subtext0 = "#87998F"
+mauve = "#B69AD9"
+green = "#A1E66C"
+yellow = "#E5CE67"
+red = "#E9675C"
+blue = "#6FB7D2"
+teal = "#65D6CB"
+peach = "#E6934A"
 
 [terminal]
 # Executable used for new interactive panes.
