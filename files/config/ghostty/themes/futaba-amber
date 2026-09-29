@@ -1,0 +1,23 @@
+# Generated from palette/futaba.lua; do not edit.
+# Regenerate: nvim --headless -u NONE -i NONE -n -c 'luafile scripts/generate.lua' -c 'qa'
+background = #FFF8ED
+foreground = #34271E
+cursor-color = #A85016
+selection-background = #F0DEC6
+selection-foreground = #34271E
+palette = 0=#433128
+palette = 1=#A6423B
+palette = 2=#47782F
+palette = 3=#856A12
+palette = 4=#356985
+palette = 5=#755688
+palette = 6=#20736F
+palette = 7=#E0D0BC
+palette = 8=#857568
+palette = 9=#BC554C
+palette = 10=#578E3B
+palette = 11=#9D7F22
+palette = 12=#477E99
+palette = 13=#8A68A0
+palette = 14=#318985
+palette = 15=#FFFCF6
