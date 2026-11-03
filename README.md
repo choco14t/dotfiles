@@ -69,6 +69,32 @@ Preview and build it without activating:
 home-manager build --flake ~/.dotfiles#choco14t
 ```
 
+## Herdr desktop
+
+The `Futaba` layout migrates the terminal Herdr configuration to `herdr-app`.
+It follows system appearance with the `futaba` / `oracle` terminal
+palettes, places tabs at the bottom, hides the tab row for a single tab, and
+removes gaps between panes. Select it with `herdr-app do layout.switch --name Futaba`.
+Fonts and other app preferences stay in the app-managed `settings.json`.
+
+`Ctrl+K` opens the prefix menu instead of deleting to the end of the shell line.
+The original arrow shortcuts work while a terminal has focus. After the prefix,
+`h/j/k/l` focus panes, `v/-` split, `x` closes a pane, `c` creates a tab,
+`p/n/1–9` switch tabs, `Tab/Shift+Tab` cycle panes, and `Alt+g` opens Lazygit.
+`Shift+W` uses the standard picker in place of Corral; splits and closes use
+the app's standard behavior in place of herdr-paddock.
+
+`Cmd+B` toggles the left sidebar; `Cmd+Shift+B` toggles the right Files/Changes
+panel. Switch Files/Changes using the tabs inside that panel, independently of
+the main tab row. The prefix menu also provides `b` for the left sidebar and
+`Shift+B` for the right panel. Panel selection and visibility are remembered per
+space, including when a single main tab hides the tab row.
+
+Legacy resize mode, scrollback editing, pane renaming, notification-target
+navigation, sidebar row templates, and TUI-only session options have no direct
+mapping here. Configuration reloads automatically. The standard app shortcuts
+remain available alongside the migrated bindings.
+
 ## Updating Neovim plugins
 
 The deployed Neovim configuration is immutable because Home Manager links it

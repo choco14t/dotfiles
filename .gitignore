@@ -1,6 +1,8 @@
 .DS_Store
 /nvim.log
 /tests/
+files/config/herdr-app/mods/*/gpui-kit.d.ts
+files/config/herdr-app/mods/*/jsconfig.json
 files/config/fish/completions/
 files/config/fish/conf.d/
 files/config/fish/fish_variables

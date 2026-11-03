@@ -21,6 +21,7 @@ let
     "fuchi"
     "ghostty"
     "herdr"
+    "herdr-app"
     "nvim"
     "tmux"
     "wezterm"
