@@ -25,46 +25,46 @@ auto_switch = true
 # red = "#ff6188"
 # green = "#a6e3a1"
 [theme.custom.light]
-accent = "#477D2C"
-panel_bg = "#F3F1E8"
-sidebar_bg = "#F3F1E8"
-active_row_bg = "#DEE5D8"
-selection_bg = "#D1DDD1"
-surface0 = "#E9EADF"
-surface1 = "#DEE5D8"
-surface_dim = "#F3F1E8"
-overlay0 = "#BCC9BD"
-overlay1 = "#64736B"
-text = "#26332D"
-subtext0 = "#64736B"
-mauve = "#79599D"
-green = "#477D2C"
-yellow = "#9A7B16"
-red = "#B8463D"
-blue = "#317D9B"
-teal = "#16867F"
-peach = "#B85F22"
+accent = "#25733A"
+panel_bg = "#FAFCF7"
+sidebar_bg = "#FAFCF7"
+active_row_bg = "#E3F0E3"
+selection_bg = "#D8EEDB"
+surface0 = "#F0F7EF"
+surface1 = "#E3F0E3"
+surface_dim = "#C2D8C7"
+overlay0 = "#C2D8C7"
+overlay1 = "#607369"
+text = "#1C3025"
+subtext0 = "#607369"
+mauve = "#6A4B93"
+green = "#25733A"
+yellow = "#806500"
+red = "#AA323A"
+blue = "#23658B"
+teal = "#0F6D71"
+peach = "#A74B0F"
 
 [theme.custom.dark]
-accent = "#A1E66C"
-panel_bg = "#101713"
-sidebar_bg = "#101713"
-active_row_bg = "#1D2A23"
-selection_bg = "#294038"
-surface0 = "#16201B"
-surface1 = "#1D2A23"
-surface_dim = "#101713"
-overlay0 = "#31463D"
-overlay1 = "#87998F"
-text = "#E6E8DF"
-subtext0 = "#87998F"
-mauve = "#B69AD9"
-green = "#A1E66C"
-yellow = "#E5CE67"
-red = "#E9675C"
-blue = "#6FB7D2"
-teal = "#65D6CB"
-peach = "#E6934A"
+accent = "#8FEF6F"
+panel_bg = "#090D0B"
+sidebar_bg = "#090D0B"
+active_row_bg = "#1B2D23"
+selection_bg = "#234236"
+surface0 = "#111B16"
+surface1 = "#1B2D23"
+surface_dim = "#385549"
+overlay0 = "#9BAEA2"
+overlay1 = "#9BAEA2"
+text = "#EAF5EE"
+subtext0 = "#9BAEA2"
+mauve = "#C6A4EE"
+green = "#8FEF6F"
+yellow = "#ECD86F"
+red = "#F47B78"
+blue = "#78BDEC"
+teal = "#64DCE0"
+peach = "#F4A44C"
 
 [terminal]
 # Executable used for new interactive panes.
@@ -116,10 +116,10 @@ prefix = "ctrl+k"
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
-previous_workspace = "shift+up" # optional, unset by default
-next_workspace = "shift+down"     # optional, unset by default
-# previous_agent = ""     # optional, unset by default
-# next_agent = ""         # optional, unset by default
+previous_workspace = "ctrl+shift+up" # optional, unset by default
+next_workspace = "ctrl+shift+down"     # optional, unset by default
+previous_agent = "shift+up"     # optional, unset by default
+next_agent = "shift+down"         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 # new_tab = "prefix+c"
@@ -159,10 +159,11 @@ close_pane = ""
 # type = "pane" opens a temporary pane and closes it when the command exits.
 # On Windows, command strings run through cmd.exe /d /c.
 [[keys.command]]
-# key = "prefix+alt+g"
-# type = "pane"
-# command = "lazygit"
+key = "prefix+alt+g"
+type = "pane"
+command = "lazygit"
 
+[[keys.command]]
 key = "prefix+shift+w"
 type = "plugin_action"
 command = "corral.open"
@@ -275,6 +276,19 @@ agent_panel_sort = "priority"
 # accent = "cyan"
 
 tab_bar_position = "bottom"
+
+[ui.sidebar.spaces]
+rows = [
+  ["state_icon", "workspace"],
+  [{ token = "branch", dim = false }, "git_status"]
+]
+
+[ui.sidebar.agents]
+rows = [
+  ["state_icon", "machine", "workspace", "tab"],
+  ["terminal_title_stripped"],
+  [{ token = "agent", dim = false }]
+]
 
 # Background notification popup delivery
 [ui.toast]
