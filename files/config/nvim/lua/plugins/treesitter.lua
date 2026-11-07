@@ -1,5 +1,43 @@
 local M = {}
 
+local function with_tree_sitter_cli(callback)
+  if vim.fn.executable("tree-sitter") == 1 then
+    return callback()
+  end
+  local registry = require("mason-registry")
+  registry.refresh(vim.schedule_wrap(function(success)
+    if not success then
+      vim.notify("Could not refresh Mason registry for tree-sitter-cli", vim.log.levels.ERROR)
+      return
+    end
+    if vim.fn.executable("tree-sitter") == 1 then
+      return callback()
+    end
+    local ok, cli = pcall(registry.get_package, "tree-sitter-cli")
+    if not ok then
+      vim.notify(cli, vim.log.levels.ERROR)
+      return
+    end
+    local function ready(installed)
+      if installed and vim.fn.executable("tree-sitter") == 1 then
+        callback()
+      else
+        vim.notify("Could not install tree-sitter-cli with Mason", vim.log.levels.ERROR)
+      end
+    end
+    if cli:is_installing() then
+      cli:once(
+        "install:success",
+        vim.schedule_wrap(function()
+          ready(true)
+        end)
+      )
+    else
+      cli:install(nil, vim.schedule_wrap(ready))
+    end
+  end))
+end
+
 function M.setup(extra_parsers)
   local treesitter = require("nvim-treesitter")
   treesitter.setup({})
@@ -45,9 +83,18 @@ function M.setup(extra_parsers)
       "tsx",
       "typescript",
     }, extra_parsers or {})
-    treesitter.install(parsers):await(function()
-      vim.schedule(function()
-        attach(vim.api.nvim_get_current_buf())
+    local installed = treesitter.get_installed("parsers")
+    parsers = vim.tbl_filter(function(lang)
+      return not vim.list_contains(installed, lang)
+    end, parsers)
+    if #parsers == 0 then
+      return
+    end
+    with_tree_sitter_cli(function()
+      treesitter.install(parsers):await(function()
+        vim.schedule(function()
+          attach(vim.api.nvim_get_current_buf())
+        end)
       end)
     end)
   end
