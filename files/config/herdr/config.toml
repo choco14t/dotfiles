@@ -14,26 +14,19 @@ name = "terminal"
 # Follow host terminal light/dark appearance and switch Herdr UI themes.
 # Existing manual behavior is unchanged unless this is true.
 auto_switch = true
-# dark_name = "catppuccin"
-# light_name = "catppuccin-latte"
 
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
-# [theme.custom]
-# panel_bg = "reset"
-# accent = "#f5c2e7"
-# red = "#ff6188"
-# green = "#a6e3a1"
 [theme.custom.light]
+sidebar_bg = "reset"
 accent = "#25733A"
 panel_bg = "#FAFCF7"
-sidebar_bg = "#FAFCF7"
 active_row_bg = "#E3F0E3"
 selection_bg = "#D8EEDB"
 surface0 = "#F0F7EF"
 surface1 = "#E3F0E3"
 surface_dim = "#C2D8C7"
-overlay0 = "#C2D8C7"
+overlay0 = "#607369"
 overlay1 = "#607369"
 text = "#1C3025"
 subtext0 = "#607369"
@@ -46,9 +39,9 @@ teal = "#0F6D71"
 peach = "#A74B0F"
 
 [theme.custom.dark]
+sidebar_bg = "reset"
 accent = "#8FEF6F"
 panel_bg = "#090D0B"
-sidebar_bg = "#090D0B"
 active_row_bg = "#1B2D23"
 selection_bg = "#234236"
 surface0 = "#111B16"
