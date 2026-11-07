@@ -1,6 +1,7 @@
 .DS_Store
 /nvim.log
 /tests/
+nvim-pack-lock.json
 files/config/herdr-app/mods/*/gpui-kit.d.ts
 files/config/herdr-app/mods/*/jsconfig.json
 files/config/fish/completions/
