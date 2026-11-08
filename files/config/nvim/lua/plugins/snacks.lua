@@ -58,6 +58,8 @@ function M.setup()
       sources = {
         explorer = {
           actions = { copy_path = copy_path },
+          hidden = true,
+          ignored = true,
           layout = { layout = { position = "right" } },
           win = { list = { keys = { s = function() end, Y = "copy_path" } } },
         },
