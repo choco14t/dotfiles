@@ -1,6 +1,3 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
 local keymap = vim.keymap
 local options = { noremap = true, silent = true }
 
@@ -16,6 +13,16 @@ keymap.set("n", "<Esc><Esc>", ":noh<CR>", options)
 -- split window
 keymap.set("n", "ss", ":<C-u>sp<CR>", options)
 keymap.set("n", "sv", ":<C-u>vs<CR>", options)
+
+-- buffers
+keymap.set("n", "H", "<Cmd>bprevious<CR>", { desc = "Prev Buffer", silent = true })
+keymap.set("n", "L", "<Cmd>bnext<CR>", { desc = "Next Buffer", silent = true })
+keymap.set("n", "<leader>bd", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer", silent = true })
+
+-- plugins
+keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update Plugins", silent = true })
 
 -- store jump record
 keymap.set("n", "j", "v:count == 0 ? 'j' : 'm`' .. v:count .. 'j'", { expr = true, noremap = true, silent = true })

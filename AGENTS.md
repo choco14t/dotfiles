@@ -28,8 +28,10 @@ deploys the source files under `files/` to the user's home directory.
   must evaluate on both macOS and Linux.
 - `files/windows/komorebi/` is tracked in Git but deliberately not deployed by
   Home Manager.
-- Home Manager deploys Neovim through the Nix store. Use `nvim-dotfiles` before
-  `:Lazy update` so changes to `lazy-lock.json` are written into this repository.
+- Home Manager deploys Neovim through the Nix store. Use `nvim-dotfiles` for
+  repository sessions and `:lua vim.pack.update()` for plugin updates. Keep the
+  generated `nvim-pack-lock.json` writable, local and untracked; do not commit it.
+  The user runs `:restart` in a repository session to reload source changes.
 - Executable scripts retain their Git executable bit. Set `executable = true`
   explicitly for individually managed scripts where the mode is part of the
   deployment contract.

@@ -1,3 +1,6 @@
+local M = {}
+local Snacks = require("snacks")
+
 local function copy_path(picker)
   local item = picker:current()
   if not item then
@@ -34,75 +37,81 @@ local function copy_path(picker)
   end)
 end
 
+local function git_root()
+  return vim.fs.root(0, ".git") or vim.fn.getcwd()
+end
+
 local function git_root_terminal()
-  Snacks.terminal.focus(nil, { cwd = LazyVim.root.git() })
+  Snacks.terminal.focus(nil, { cwd = git_root() })
 end
 
 local function git_root_files()
-  LazyVim.pick.open("files", { cwd = LazyVim.root.git() })
+  Snacks.picker.files({ cwd = git_root() })
 end
 
-return {
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    ---@type snacks.Config
-    opts = {
-      lazygit = { win = { border = "rounded" } },
-      notifier = { enabled = true, style = "compact", top_down = false },
-      picker = {
-        sources = {
-          explorer = {
-            actions = { copy_path = copy_path },
-            layout = { layout = { position = "right" } },
-            win = { list = { keys = { s = function() end, Y = "copy_path" } } },
-          },
-          files = {
-            hidden = true,
-            layout = { fullscreen = true },
+function M.setup()
+  Snacks.setup({
+    explorer = {},
+    indent = {},
+    lazygit = { win = { border = "rounded" } },
+    notifier = { enabled = true, style = "compact", top_down = false },
+    picker = {
+      sources = {
+        explorer = {
+          actions = { copy_path = copy_path },
+          hidden = true,
+          ignored = true,
+          layout = { layout = { position = "right" } },
+          win = { list = { keys = { s = function() end, Y = "copy_path" } } },
+        },
+        files = {
+          hidden = true,
+          layout = { fullscreen = true },
+        },
+      },
+      win = {
+        input = {
+          keys = {
+            ["<a-f>"] = false,
+            ["<a-h>"] = false,
+            ["<a-g>"] = { "toggle_follow", mode = { "i", "n" } },
+            ["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
           },
         },
-        win = {
-          input = {
-            keys = {
-              ["<a-f>"] = false,
-              ["<a-h>"] = false,
-              ["<a-g>"] = { "toggle_follow", mode = { "i", "n" } },
-              ["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
-            },
-          },
-          list = {
-            keys = {
-              ["<a-f>"] = false,
-              ["<a-h>"] = false,
-              ["<a-g>"] = "toggle_follow",
-              ["<a-.>"] = "toggle_hidden",
-            },
+        list = {
+          keys = {
+            ["<a-f>"] = false,
+            ["<a-h>"] = false,
+            ["<a-g>"] = "toggle_follow",
+            ["<a-.>"] = "toggle_hidden",
           },
         },
       },
-      terminal = { win = { border = "rounded", position = "float" } },
     },
-    keys = {
-      { "<c-/>", git_root_terminal, mode = { "n", "t" }, desc = "Terminal (Git Root)" },
-      { "<c-_>", git_root_terminal, mode = { "n", "t" }, desc = "which_key_ignore" },
-      { "<leader><space>", git_root_files, desc = "Find Files (Git Root)" },
-      { "<leader>ff", git_root_files, desc = "Find Files (Git Root)" },
-      {
-        "<leader>fe",
-        function()
-          Snacks.explorer({ cwd = LazyVim.root.git() })
-        end,
-        desc = "Explorer Snacks (Git Root)",
-      },
-      {
-        "<leader>un",
-        function()
-          Snacks.notifier.hide()
-        end,
-        desc = "Dismiss All Notifications",
-      },
-    },
-  },
-}
+    terminal = { win = { border = "rounded", position = "float" } },
+  })
+
+  vim.keymap.set("n", "<leader>gg", function()
+    Snacks.lazygit({ cwd = git_root() })
+  end, { desc = "Lazygit (Git Root)", silent = true })
+  vim.keymap.set({ "n", "t" }, "<C-/>", git_root_terminal, { desc = "Terminal (Git Root)" })
+  vim.keymap.set({ "n", "t" }, "<C-_>", git_root_terminal, { desc = "which_key_ignore" })
+  vim.keymap.set("n", "<leader><space>", git_root_files, { desc = "Find Files (Git Root)" })
+  vim.keymap.set("n", "<leader>ff", git_root_files, { desc = "Find Files (Git Root)" })
+  vim.keymap.set("n", "<leader>sg", function()
+    Snacks.picker.grep({ cwd = git_root() })
+  end, { desc = "Grep (Git Root)", silent = true })
+  vim.keymap.set("n", "<leader>fe", function()
+    Snacks.explorer({ cwd = git_root() })
+  end, { desc = "Explorer Snacks (Git Root)" })
+  vim.keymap.set("n", "<leader>fE", function()
+    Snacks.explorer({ cwd = vim.fn.getcwd() })
+  end, { desc = "Explorer Snacks (cwd)" })
+  vim.keymap.set("n", "<leader>e", "<leader>fe", { remap = true, desc = "Explorer Snacks (Git Root)" })
+  vim.keymap.set("n", "<leader>E", "<leader>fE", { remap = true, desc = "Explorer Snacks (cwd)" })
+  vim.keymap.set("n", "<leader>un", function()
+    Snacks.notifier.hide()
+  end, { desc = "Dismiss All Notifications" })
+end
+
+return M

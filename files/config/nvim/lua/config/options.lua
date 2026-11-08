@@ -1,13 +1,13 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
 vim.g.snacks_animate = false
+vim.g.futaba_transparent = true
 
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.cursorline = true
 
-vim.o.mouse = "a"
-vim.o.mousescroll = "ver:3,hor:6"
+vim.opt.iskeyword:append("-")
+
+vim.o.mouse = ""
 
 vim.o.wrap = true
 
@@ -27,6 +27,10 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 0
 
+-- folding
+vim.o.foldlevel = 99
+vim.o.foldmethod = "indent"
+
 -- search
 vim.o.hlsearch = true
 vim.o.incsearch = true
@@ -41,5 +45,8 @@ vim.o.directory = "~/.vim/tmp"
 -- spell
 vim.o.spell = false
 
--- hide statusline
+-- hide statusline, mode and cursor position
 vim.opt.laststatus = 0
+vim.opt.showmode = false
+vim.opt.ruler = false
+vim.opt.cmdheight = 0

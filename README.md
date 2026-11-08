@@ -99,19 +99,28 @@ remain available alongside the migrated bindings.
 
 The deployed Neovim configuration is immutable because Home Manager links it
 through the Nix store. Launch Neovim with the repository copy as its config
-directory when updating `lazy-lock.json`:
+directory for source edits and native plugin updates:
 
 ```sh
 nvim-dotfiles
 ```
 
-Then run `:Lazy update` and commit the resulting
-`files/config/nvim/lazy-lock.json` change. Set `DOTFILES_ROOT` when working from
-another checkout:
+Set `DOTFILES_ROOT` when working from another checkout:
 
 ```sh
 DOTFILES_ROOT="$PWD" nvim-dotfiles
 ```
+
+Run `:lua vim.pack.update()`, review the confirmation buffer, and use `:write`
+to apply or `:quit` to discard. The generated `nvim-pack-lock.json` is writable
+local state, ignored by Git and unmanaged by Home Manager. Updates need no
+lockfile commit or handwritten revision pins.
+
+The user can run `:restart` in that repository session to reload source changes.
+Restarting a session using the Nix-store deployment continues to use that
+deployment. Git rollback restores configuration, not exact plugin revisions;
+optional restoration from an existing external local lockfile snapshot is
+described in the [Neovim README](files/config/nvim/README.md).
 
 ## Verification
 
