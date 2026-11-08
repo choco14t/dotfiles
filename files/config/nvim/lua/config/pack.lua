@@ -1,7 +1,5 @@
 return {
   { src = "https://github.com/nvim-mini/mini.icons.git", version = "main" },
-  { src = "https://github.com/nvim-lua/plenary.nvim.git", version = "master" },
-  { src = "https://github.com/nvim-telescope/telescope.nvim.git", version = "master" },
   { src = "https://github.com/rafamadriz/friendly-snippets.git", version = "main" },
   { src = "https://github.com/saghen/blink.cmp.git", version = vim.version.range("^1") },
   { src = "https://github.com/mason-org/mason.nvim.git", version = "main" },
@@ -13,7 +11,6 @@ return {
   { src = "https://github.com/lewis6991/gitsigns.nvim.git", version = "main" },
   { src = "https://github.com/choco14t/gaito.nvim.git", version = "main" },
   { src = "https://github.com/nvim-mini/mini.surround.git", version = "main" },
-  { src = "https://github.com/renerocksai/telekasten.nvim.git", version = "main" },
   { src = "https://github.com/stevearc/conform.nvim.git", version = "master" },
   { src = "https://github.com/choco14t/futaba.git", version = "main" },
   { src = "https://github.com/EdenEast/nightfox.nvim.git", version = "main" },
