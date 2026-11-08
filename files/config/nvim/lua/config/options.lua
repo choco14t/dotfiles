@@ -27,6 +27,10 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 0
 
+-- folding
+vim.o.foldlevel = 99
+vim.o.foldmethod = "indent"
+
 -- search
 vim.o.hlsearch = true
 vim.o.incsearch = true

@@ -53,10 +53,14 @@ function M.setup(extra_parsers)
     if vim.treesitter.query.get(lang, "indents") then
       vim.bo[buffer].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
+    if vim.treesitter.query.get(lang, "folds") then
+      vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      vim.wo[0][0].foldmethod = "expr"
+    end
   end
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("dotfiles_treesitter", { clear = true }),
-    desc = "Enable installed Treesitter highlighting and indentation",
+    desc = "Enable installed Treesitter highlighting, indentation and folding",
     callback = function(event)
       attach(event.buf)
     end,
