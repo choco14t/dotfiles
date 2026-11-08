@@ -52,6 +52,7 @@ end
 function M.setup()
   Snacks.setup({
     explorer = {},
+    indent = {},
     lazygit = { win = { border = "rounded" } },
     notifier = { enabled = true, style = "compact", top_down = false },
     picker = {
