@@ -38,5 +38,8 @@ vim.o.directory = "~/.vim/tmp"
 -- spell
 vim.o.spell = false
 
--- hide statusline
+-- hide statusline, mode and cursor position
 vim.opt.laststatus = 0
+vim.opt.showmode = false
+vim.opt.ruler = false
+vim.opt.cmdheight = 0

@@ -9,6 +9,21 @@ function M.setup()
   local active_group = "Normal"
   local inactive_group = "NonText"
   local icons = { error = "󰅚 ", warn = "󰀪 ", hint = "󰌶 ", info = " " }
+  local modes = {
+    n = "NORMAL",
+    i = "INSERT",
+    R = "REPLACE",
+    v = "VISUAL",
+    V = "VISUAL LINE",
+    ["\22"] = "VISUAL BLOCK",
+    s = "SELECT",
+    S = "SELECT LINE",
+    ["\19"] = "SELECT BLOCK",
+    c = "COMMAND",
+    t = "TERMINAL",
+    r = "PROMPT",
+    ["!"] = "SHELL",
+  }
 
   --- @param props { buf: number, win: number, focused: boolean }
   local function get_diagnostic_label(props)
@@ -42,8 +57,15 @@ function M.setup()
 
     local filename_group = hasError and "DiagnosticError" or (isReadonly and inactive_group or active_group)
     filename_group = props.focused and filename_group or inactive_group
+    local mode = vim.api.nvim_get_mode().mode
+    local mode_label = modes[mode:sub(1, 1)] or mode:upper()
 
     return {
+      {
+        props.focused and (mode_label:sub(1, 1) .. " ┊ ") or "",
+        group = active_group,
+        gui = "bold",
+      },
       { get_diagnostic_label(props) },
       {
         (ft_icon and ft_icon .. " " or ""),
