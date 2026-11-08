@@ -27,27 +27,6 @@ function M.setup()
   })
   vim.keymap.set("n", "<leader>z", "<CMD>ZenMode<CR>", { desc = "Toggle ZenMode" })
 
-  require("bufferline").setup({
-    options = {
-      close_command = function(buffer)
-        Snacks.bufdelete(buffer)
-      end,
-      right_mouse_command = function(buffer)
-        Snacks.bufdelete(buffer)
-      end,
-      diagnostics = "nvim_lsp",
-      always_show_bufferline = false,
-      diagnostics_indicator = function(_, _, diagnostics)
-        local errors = diagnostics.error and " " .. diagnostics.error .. " " or ""
-        local warnings = diagnostics.warning and " " .. diagnostics.warning or ""
-        return vim.trim(errors .. warnings)
-      end,
-      show_buffer_close_icons = false,
-      auto_toggle_bufferline = false,
-      indicator = { icon = "", style = "underline" },
-    },
-  })
-
   if #vim.api.nvim_list_uis() > 0 then
     require("auto-dark-mode").setup({
       update_interval = 1000,

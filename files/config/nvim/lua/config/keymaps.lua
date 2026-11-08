@@ -14,6 +14,13 @@ keymap.set("n", "<Esc><Esc>", ":noh<CR>", options)
 keymap.set("n", "ss", ":<C-u>sp<CR>", options)
 keymap.set("n", "sv", ":<C-u>vs<CR>", options)
 
+-- buffers
+keymap.set("n", "H", "<Cmd>bprevious<CR>", { desc = "Prev Buffer", silent = true })
+keymap.set("n", "L", "<Cmd>bnext<CR>", { desc = "Next Buffer", silent = true })
+keymap.set("n", "<leader>bd", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer", silent = true })
+
 -- store jump record
 keymap.set("n", "j", "v:count == 0 ? 'j' : 'm`' .. v:count .. 'j'", { expr = true, noremap = true, silent = true })
 keymap.set("n", "k", "v:count == 0 ? 'k' : 'm`' .. v:count .. 'k'", { expr = true, noremap = true, silent = true })

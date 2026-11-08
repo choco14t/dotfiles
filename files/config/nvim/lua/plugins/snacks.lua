@@ -90,6 +90,9 @@ function M.setup()
     terminal = { win = { border = "rounded", position = "float" } },
   })
 
+  vim.keymap.set("n", "<leader>gg", function()
+    Snacks.lazygit({ cwd = git_root() })
+  end, { desc = "Lazygit (Git Root)", silent = true })
   vim.keymap.set({ "n", "t" }, "<C-/>", git_root_terminal, { desc = "Terminal (Git Root)" })
   vim.keymap.set({ "n", "t" }, "<C-_>", git_root_terminal, { desc = "which_key_ignore" })
   vim.keymap.set("n", "<leader><space>", git_root_files, { desc = "Find Files (Git Root)" })
