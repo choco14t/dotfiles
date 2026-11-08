@@ -26,7 +26,7 @@ session continues to use its Nix-store configuration.
 
 ## Plugin maintenance
 
-In a repository session, run:
+In a repository session, press `<leader>pu` (Space, p, u) or run:
 
 ```vim
 :lua vim.pack.update()
