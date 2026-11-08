@@ -1,9 +1,7 @@
 local M = {}
 
 function M.setup()
-  require("nightfox").setup({
-    options = { transparent = true, dim_inactive = false },
-  })
+  vim.g.futaba_transparent = true
   vim.cmd.colorscheme("futaba")
 end
 

@@ -13,7 +13,6 @@ return {
   { src = "https://github.com/nvim-mini/mini.surround.git", version = "main" },
   { src = "https://github.com/stevearc/conform.nvim.git", version = "master" },
   { src = "https://github.com/choco14t/futaba.git", version = "main" },
-  { src = "https://github.com/EdenEast/nightfox.nvim.git", version = "main" },
   { src = "https://github.com/f-person/auto-dark-mode.nvim.git", version = "main" },
   { src = "https://github.com/akinsho/bufferline.nvim.git", version = "main" },
   { src = "https://github.com/b0o/incline.nvim.git", version = "main" },
