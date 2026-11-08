@@ -21,6 +21,9 @@ keymap.set("n", "<leader>bd", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer", silent = true })
 
+-- plugins
+keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update Plugins", silent = true })
+
 -- store jump record
 keymap.set("n", "j", "v:count == 0 ? 'j' : 'm`' .. v:count .. 'j'", { expr = true, noremap = true, silent = true })
 keymap.set("n", "k", "v:count == 0 ? 'k' : 'm`' .. v:count .. 'k'", { expr = true, noremap = true, silent = true })
